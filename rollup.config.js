@@ -1,7 +1,7 @@
-import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import url from '@rollup/plugin-url';
+import babel from 'rollup-plugin-babel';
 import external from 'rollup-plugin-peer-deps-external';
 
 import pkg from './package.json';
@@ -14,7 +14,7 @@ export default {
     {
       file: pkg.browser,
       format: 'umd',
-      name: 'capitalroadkit',
+      name: 'reilleykit',
     },
     {
       file: pkg.main,
