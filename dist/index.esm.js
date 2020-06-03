@@ -198,15 +198,16 @@ var useStyles$3 = createUseStyles({
   },
   boxSpan: function boxSpan(_ref2) {
     var disabled = _ref2.disabled,
+        theme = _ref2.theme,
         value = _ref2.value;
     return {
       lineHeight: '0',
       flexShrink: '0',
-      color: disabled ? 'rgb(244, 245, 247)' : value ? 'rgb(0, 82, 204)' : 'rgb(250, 251, 252)',
+      color: disabled ? 'rgb(244, 245, 247)' : value ? theme.palette.primary.main : 'rgb(250, 251, 252)',
       fill: disabled ? 'transparent' : value ? 'rgb(250, 251, 252)' : 'transparent',
       transition: 'all .2s ease-in-out 0s',
       '&:hover': {
-        color: disabled ? 'rgb(244, 245, 247)' : 'rgb(235, 236, 240)'
+        color: disabled ? 'rgb(244, 245, 247)' : value ? theme.palette.primary.light : 'rgb(235, 236, 240)'
       },
       '& > span': {
         display: 'flex',
