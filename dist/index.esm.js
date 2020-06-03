@@ -3,52 +3,13 @@ import React, { createContext, useContext } from 'react';
 import { createUseStyles } from 'react-jss';
 import Color from 'color';
 
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
-
-function _objectWithoutProperties(source, excluded) {
-  if (source == null) return {};
-  var target = _objectWithoutPropertiesLoose(source, excluded);
-  var key, i;
-
-  if (Object.getOwnPropertySymbols) {
-    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-
-    for (i = 0; i < sourceSymbolKeys.length; i++) {
-      key = sourceSymbolKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-      target[key] = source[key];
-    }
-  }
-
-  return target;
-}
-
 var useStyles = createUseStyles({
-  col: function col(_ref) {
-    var size = _ref.size;
-    return {
-      alignSelf: 'stretch',
-      flex: "1 0 calc(100% / 12 * ".concat(size, " - 16px)"),
-      margin: '16px 8px 0 8px',
-      maxWidth: "calc(100% / 12 * ".concat(size, " - 16px)"),
-      minWidth: 'calc(100% / 12 - 16px)',
-      overflowWrap: 'break-word',
-      transition: 'max-width 300ms cubic-bezier(.4, 0, .2, 1)'
-    };
+  card: {
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '16px 0',
+    borderRadius: '3px',
+    boxShadow: 'rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.31) 0px 0px 1px 0px'
   }
 });
 
@@ -101,6 +62,67 @@ var useTheme = function useTheme() {
   return useContext(ThemeContext);
 };
 
+var Card = function Card(_ref) {
+  var children = _ref.children,
+      classname = _ref.classname;
+  var theme = useTheme();
+  var classes = useStyles({
+    theme: theme
+  });
+  return /*#__PURE__*/React.createElement("div", {
+    className: clsx(classes.card, classname)
+  }, children);
+};
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+  var target = _objectWithoutPropertiesLoose(source, excluded);
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+var useStyles$1 = createUseStyles({
+  col: function col(_ref) {
+    var size = _ref.size;
+    return {
+      alignSelf: 'stretch',
+      flex: "1 0 calc(100% / 12 * ".concat(size, " - 16px)"),
+      margin: '16px 8px 0 8px',
+      maxWidth: "calc(100% / 12 * ".concat(size, " - 16px)"),
+      minWidth: 'calc(100% / 12 - 16px)',
+      overflowWrap: 'break-word',
+      transition: 'max-width 300ms cubic-bezier(.4, 0, .2, 1)'
+    };
+  }
+});
+
 var Col = function Col(_ref) {
   var children = _ref.children,
       className = _ref.className,
@@ -108,7 +130,7 @@ var Col = function Col(_ref) {
       props = _objectWithoutProperties(_ref, ["children", "className", "size"]);
 
   var theme = useTheme();
-  var classes = useStyles({
+  var classes = useStyles$1({
     size: size,
     theme: theme
   });
@@ -117,7 +139,7 @@ var Col = function Col(_ref) {
   }, props), children);
 };
 
-var useStyles$1 = createUseStyles({
+var useStyles$2 = createUseStyles({
   grid: function grid(_ref) {
     var nested = _ref.nested;
     return {
@@ -138,7 +160,7 @@ var Grid = function Grid(_ref) {
       props = _objectWithoutProperties(_ref, ["children", "className", "nested"]);
 
   var theme = useTheme();
-  var classes = useStyles$1({
+  var classes = useStyles$2({
     nested: nested,
     theme: theme
   });
@@ -151,7 +173,7 @@ Grid.defaultProps = {
   nested: false
 };
 
-var useStyles$2 = createUseStyles({
+var useStyles$3 = createUseStyles({
   page: {
     padding: '16px 0'
   }
@@ -163,7 +185,7 @@ var Page = function Page(_ref) {
       props = _objectWithoutProperties(_ref, ["children", "className"]);
 
   var theme = useTheme();
-  var classes = useStyles$2({
+  var classes = useStyles$3({
     theme: theme
   });
   return /*#__PURE__*/React.createElement("div", Object.assign({
@@ -171,7 +193,7 @@ var Page = function Page(_ref) {
   }, props), children);
 };
 
-var useStyles$3 = createUseStyles({
+var useStyles$4 = createUseStyles({
   wrapper: function wrapper(_ref) {
     var disabled = _ref.disabled,
         theme = _ref.theme;
@@ -245,7 +267,7 @@ var Checkbox = function Checkbox(_ref) {
       props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "style"]);
 
   var theme = useTheme();
-  var classes = useStyles$3({
+  var classes = useStyles$4({
     disabled: disabled,
     theme: theme,
     value: field.value
@@ -283,7 +305,7 @@ var Checkbox = function Checkbox(_ref) {
   }, label));
 };
 
-var useStyles$4 = createUseStyles({
+var useStyles$5 = createUseStyles({
   input: {
     backgroundColor: 'transparent',
     border: '0 none',
@@ -353,7 +375,7 @@ var Textarea = function Textarea(_ref) {
       props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "required"]);
 
   var theme = useTheme();
-  var classes = useStyles$4({
+  var classes = useStyles$5({
     disabled: disabled,
     theme: theme
   });
@@ -371,7 +393,7 @@ var Textarea = function Textarea(_ref) {
   }))));
 };
 
-var useStyles$5 = createUseStyles({
+var useStyles$6 = createUseStyles({
   input: {
     backgroundColor: 'transparent',
     border: '0 none',
@@ -441,7 +463,7 @@ var Textfield = function Textfield(_ref) {
       props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "required"]);
 
   var theme = useTheme();
-  var classes = useStyles$5({
+  var classes = useStyles$6({
     disabled: disabled,
     theme: theme
   });
@@ -460,4 +482,4 @@ var Textfield = function Textfield(_ref) {
   }))));
 };
 
-export { Checkbox, Col, Grid, Page, Textarea, Textfield, ThemeProvider };
+export { Card, Checkbox, Col, Grid, Page, Textarea, Textfield, ThemeProvider };
