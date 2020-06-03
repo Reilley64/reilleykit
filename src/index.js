@@ -1,3 +1,3 @@
 export { Col, Grid, Page } from './components/Page';
-export { default as TextField } from './components/Textfield';
+export { Checkbox, Textfield } from './components/Input';
 export { default as ThemeProvider } from './components/ThemeProvider';

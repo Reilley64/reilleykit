@@ -177,6 +177,99 @@
   };
 
   var useStyles$3 = reactJss.createUseStyles({
+    wrapper: function wrapper(_ref) {
+      var theme = _ref.theme;
+      return {
+        color: theme.palette.text.base,
+        display: 'flex',
+        alignItems: 'flex-start'
+      };
+    },
+    box: function box(_ref2) {
+      var value = _ref2.value;
+      return {
+        display: 'flex',
+        flexShrink: '0',
+        position: 'relative',
+        '& > input': {
+          left: '50%',
+          margin: '0px',
+          opacity: '0',
+          padding: '0',
+          position: 'absolute',
+          transform: 'translate(-50%, -50%)',
+          top: '50%',
+          pointerEvents: 'none'
+        },
+        '& > span': {
+          lineHeight: '0',
+          flexShrink: '0',
+          color: value ? 'rgb(0, 82, 204)' : 'rgb(250, 251, 252)',
+          fill: value ? 'rgb(250, 251, 252)' : 'transparent',
+          transition: 'all .2s ease-in-out 0s',
+          '& > span': {
+            display: 'flex',
+            height: '24px',
+            width: '24px',
+            '& > svg': {
+              height: '24px',
+              width: '24px',
+              maxHeight: '100%',
+              maxWidth: '100%',
+              pointerEvents: 'none'
+            }
+          }
+        }
+      };
+    },
+    label: {
+      padding: '2px 4px'
+    }
+  });
+
+  var Checkbox = function Checkbox(_ref) {
+    var className = _ref.className,
+        disabled = _ref.disabled,
+        field = _ref.field,
+        label = _ref.label,
+        props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label"]);
+
+    var theme = useTheme();
+    var classes = useStyles$3({
+      disabled: disabled,
+      theme: theme,
+      value: field.value
+    });
+    return /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("label", {
+      className: classes.wrapper
+    }, /*#__PURE__*/React__default.createElement("span", {
+      className: classes.box
+    }, /*#__PURE__*/React__default.createElement("input", Object.assign({}, field, props, {
+      type: 'checkbox'
+    })), /*#__PURE__*/React__default.createElement("span", null, /*#__PURE__*/React__default.createElement("span", null, /*#__PURE__*/React__default.createElement("svg", {
+      width: '24',
+      height: '24',
+      viewBox: '0 0 24 24',
+      focusable: 'false',
+      role: 'presentation'
+    }, /*#__PURE__*/React__default.createElement("g", {
+      "fill-rule": 'evenodd'
+    }, /*#__PURE__*/React__default.createElement("rect", {
+      fill: 'currentColor',
+      x: '6',
+      y: '6',
+      width: '12',
+      height: '12',
+      rx: '2'
+    }), /*#__PURE__*/React__default.createElement("path", {
+      d: 'M9.707 11.293a1 1 0 1 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 1 0-1.414-1.414L11 12.586l-1.293-1.293z',
+      fill: 'inherit'
+    })))))), /*#__PURE__*/React__default.createElement("span", {
+      className: classes.label
+    }, label)));
+  };
+
+  var useStyles$4 = reactJss.createUseStyles({
     input: {
       backgroundColor: 'transparent',
       border: '0 none',
@@ -246,7 +339,7 @@
         props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "required"]);
 
     var theme = useTheme();
-    var classes = useStyles$3({
+    var classes = useStyles$4({
       disabled: disabled,
       theme: theme
     });
@@ -265,10 +358,11 @@
     }))));
   };
 
+  exports.Checkbox = Checkbox;
   exports.Col = Col;
   exports.Grid = Grid;
   exports.Page = Page;
-  exports.TextField = Textfield;
+  exports.Textfield = Textfield;
   exports.ThemeProvider = ThemeProvider;
 
   Object.defineProperty(exports, '__esModule', { value: true });
