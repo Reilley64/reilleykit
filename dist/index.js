@@ -216,7 +216,15 @@
               width: '24px',
               maxHeight: '100%',
               maxWidth: '100%',
-              pointerEvents: 'none'
+              pointerEvents: 'none',
+              fill: 'inherit',
+              '& > g': {
+                '& > rect': {
+                  transition: 'stroke .2s ease-in-out 0s',
+                  stroke: value ? 'currentcolor' : 'rgb(233, 225, 230)',
+                  stokeWidth: '2px'
+                }
+              }
             }
           }
         }
