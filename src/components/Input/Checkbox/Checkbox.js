@@ -14,7 +14,7 @@ const Checkbox = ({
     <div>
       <label className={classes.wrapper}>
         <span className={classes.box}>
-          <input {...field} {...props} type={'checkbox'}/>
+          <input {...field} {...props} disabled={disabled} type={'checkbox'}/>
           <span>
             <span>
               <svg width={'24'} height={'24'} viewBox={'0 0 24 24'} focusable={'false'} role={'presentation'}>

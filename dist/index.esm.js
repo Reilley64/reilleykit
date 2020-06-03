@@ -173,15 +173,17 @@ var Page = function Page(_ref) {
 
 var useStyles$3 = createUseStyles({
   wrapper: function wrapper(_ref) {
-    var theme = _ref.theme;
+    var disabled = _ref.disabled,
+        theme = _ref.theme;
     return {
-      color: theme.palette.text.base,
+      color: disabled ? 'rgb(151, 160, 175)' : theme.palette.text.base,
       display: 'flex',
       alignItems: 'flex-start'
     };
   },
   box: function box(_ref2) {
-    var value = _ref2.value;
+    var disabled = _ref2.disabled,
+        value = _ref2.value;
     return {
       display: 'flex',
       flexShrink: '0',
@@ -199,9 +201,12 @@ var useStyles$3 = createUseStyles({
       '& > span': {
         lineHeight: '0',
         flexShrink: '0',
-        color: value ? 'rgb(0, 82, 204)' : 'rgb(250, 251, 252)',
-        fill: value ? 'rgb(250, 251, 252)' : 'transparent',
+        color: disabled ? 'rgb(244, 245, 247)' : value ? 'rgb(0, 82, 204)' : 'rgb(250, 251, 252)',
+        fill: disabled ? 'transparent' : value ? 'rgb(250, 251, 252)' : 'transparent',
         transition: 'all .2s ease-in-out 0s',
+        '&:hover': {
+          color: disabled ? 'rgb(244, 245, 247)' : 'rgb(235, 236, 240)'
+        },
         '& > span': {
           display: 'flex',
           height: '24px',
@@ -216,7 +221,7 @@ var useStyles$3 = createUseStyles({
             '& > g': {
               '& > rect': {
                 transition: 'stroke .2s ease-in-out 0s',
-                stroke: value ? 'currentcolor' : 'rgb(233, 225, 230)',
+                stroke: disabled ? 'default' : value ? 'currentcolor' : 'rgb(233, 225, 230)',
                 stokeWidth: '2px'
               }
             }
@@ -248,6 +253,7 @@ var Checkbox = function Checkbox(_ref) {
   }, /*#__PURE__*/React.createElement("span", {
     className: classes.box
   }, /*#__PURE__*/React.createElement("input", Object.assign({}, field, props, {
+    disabled: disabled,
     type: 'checkbox'
   })), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("svg", {
     width: '24',

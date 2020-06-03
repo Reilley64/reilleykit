@@ -25,6 +25,7 @@
       }
     ],
     "import/prefer-default-export": "off",
+    "no-nested-ternary": "off",
     "no-restricted-syntax": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error"
