@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { createContext, useContext } from 'react';
 import { createUseStyles } from 'react-jss';
-import 'color';
+import Color from 'color';
 
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
@@ -53,6 +53,49 @@ var useStyles = createUseStyles({
 });
 
 var ThemeContext = createContext(null);
+
+var ThemeProvider = function ThemeProvider(_ref) {
+  var children = _ref.children;
+  var value = {
+    palette: {
+      primary: {
+        main: 'rgb(54, 136, 252)'
+      },
+      secondary: {
+        main: 'rgb(145, 156, 167)'
+      },
+      success: {
+        main: 'rgb(66, 210, 157)'
+      },
+      danger: {
+        main: 'rgb(250, 103, 103)'
+      },
+      warning: {
+        main: 'rgb(249, 188, 13)'
+      },
+      info: {
+        main: 'rgb(68, 186, 220)'
+      },
+      text: {
+        base: 'rgb(0, 0, 0)',
+        muted: 'rgba(0, 0, 0, .62)'
+      }
+    }
+  };
+
+  for (var _i = 0, _Object$keys = Object.keys(value.palette); _i < _Object$keys.length; _i++) {
+    var key = _Object$keys[_i];
+
+    if (value.palette[key].main) {
+      value.palette[key].light = Color(value.palette[key].main).lighten(0.25).hex();
+      value.palette[key].dark = Color(value.palette[key].main).darken(0.25).hex();
+    }
+  }
+
+  return /*#__PURE__*/React.createElement(ThemeContext.Provider, {
+    value: value
+  }, children);
+};
 
 var useTheme = function useTheme() {
   return useContext(ThemeContext);
@@ -217,4 +260,4 @@ var Textfield = function Textfield(_ref) {
   }))));
 };
 
-export { Col, Grid, Page, Textfield as TextField };
+export { Col, Grid, Page, Textfield as TextField, ThemeProvider };
