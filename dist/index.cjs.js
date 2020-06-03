@@ -248,7 +248,8 @@ var Checkbox = function Checkbox(_ref) {
       disabled = _ref.disabled,
       field = _ref.field,
       label = _ref.label,
-      props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label"]);
+      style = _ref.style,
+      props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "style"]);
 
   var theme = useTheme();
   var classes = useStyles$3({
@@ -256,8 +257,9 @@ var Checkbox = function Checkbox(_ref) {
     theme: theme,
     value: field.value
   });
-  return /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("label", {
-    className: classes.wrapper
+  return /*#__PURE__*/React__default.createElement("label", {
+    className: clsx(classes.wrapper, className),
+    style: style
   }, /*#__PURE__*/React__default.createElement("span", {
     className: classes.box
   }, /*#__PURE__*/React__default.createElement("input", Object.assign({}, field, props, {
@@ -285,7 +287,7 @@ var Checkbox = function Checkbox(_ref) {
     fill: 'inherit'
   })))))), /*#__PURE__*/React__default.createElement("span", {
     className: classes.label
-  }, label)));
+  }, label));
 };
 
 var useStyles$4 = reactJss.createUseStyles({
