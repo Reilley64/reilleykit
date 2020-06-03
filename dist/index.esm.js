@@ -181,49 +181,49 @@ var useStyles$3 = createUseStyles({
       alignItems: 'flex-start'
     };
   },
-  box: function box(_ref2) {
+  box: {
+    display: 'flex',
+    flexShrink: '0',
+    position: 'relative',
+    '& > input': {
+      left: '50%',
+      margin: '0px',
+      opacity: '0',
+      padding: '0',
+      position: 'absolute',
+      transform: 'translate(-50%, -50%)',
+      top: '50%',
+      pointerEvents: 'none'
+    }
+  },
+  boxSpan: function boxSpan(_ref2) {
     var disabled = _ref2.disabled,
         value = _ref2.value;
     return {
-      display: 'flex',
+      lineHeight: '0',
       flexShrink: '0',
-      position: 'relative',
-      '& > input': {
-        left: '50%',
-        margin: '0px',
-        opacity: '0',
-        padding: '0',
-        position: 'absolute',
-        transform: 'translate(-50%, -50%)',
-        top: '50%',
-        pointerEvents: 'none'
+      color: disabled ? 'rgb(244, 245, 247)' : value ? 'rgb(0, 82, 204)' : 'rgb(250, 251, 252)',
+      fill: disabled ? 'transparent' : value ? 'rgb(250, 251, 252)' : 'transparent',
+      transition: 'all .2s ease-in-out 0s',
+      '&:hover': {
+        color: disabled ? 'rgb(244, 245, 247)' : 'rgb(235, 236, 240)'
       },
       '& > span': {
-        lineHeight: '0',
-        flexShrink: '0',
-        color: disabled ? 'rgb(244, 245, 247)' : value ? 'rgb(0, 82, 204)' : 'rgb(250, 251, 252)',
-        fill: disabled ? 'transparent' : value ? 'rgb(250, 251, 252)' : 'transparent',
-        transition: 'all .2s ease-in-out 0s',
-        '&:hover': {
-          color: disabled ? 'rgb(244, 245, 247)' : 'rgb(235, 236, 240)'
-        },
-        '& > span': {
-          display: 'flex',
+        display: 'flex',
+        height: '24px',
+        width: '24px',
+        '& > svg': {
           height: '24px',
           width: '24px',
-          '& > svg': {
-            height: '24px',
-            width: '24px',
-            maxHeight: '100%',
-            maxWidth: '100%',
-            pointerEvents: 'none',
-            fill: 'inherit',
-            '& > g': {
-              '& > rect': {
-                transition: 'stroke .2s ease-in-out 0s',
-                stroke: disabled ? 'default' : value ? 'currentcolor' : 'rgb(233, 225, 230)',
-                stokeWidth: '2px'
-              }
+          maxHeight: '100%',
+          maxWidth: '100%',
+          pointerEvents: 'none',
+          fill: 'inherit',
+          '& > g': {
+            '& > rect': {
+              transition: 'stroke .2s ease-in-out 0s',
+              stroke: disabled ? 'default' : value ? 'currentcolor' : 'rgb(233, 225, 230)',
+              stokeWidth: '2px'
             }
           }
         }
@@ -255,7 +255,9 @@ var Checkbox = function Checkbox(_ref) {
   }, /*#__PURE__*/React.createElement("input", Object.assign({}, field, props, {
     disabled: disabled,
     type: 'checkbox'
-  })), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("svg", {
+  })), /*#__PURE__*/React.createElement("span", {
+    className: classes.boxSpan
+  }, /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("svg", {
     width: '24',
     height: '24',
     viewBox: '0 0 24 24',

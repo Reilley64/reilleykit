@@ -15,7 +15,7 @@ const Checkbox = ({
       <label className={classes.wrapper}>
         <span className={classes.box}>
           <input {...field} {...props} disabled={disabled} type={'checkbox'}/>
-          <span>
+          <span className={classes.boxSpan}>
             <span>
               <svg width={'24'} height={'24'} viewBox={'0 0 24 24'} focusable={'false'} role={'presentation'}>
                 <g fill-rule={'evenodd'}>

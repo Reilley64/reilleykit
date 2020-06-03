@@ -6,7 +6,7 @@ const useStyles = createUseStyles({
     display: 'flex',
     alignItems: 'flex-start',
   }),
-  box: ({ disabled, value }) => ({
+  box: {
     display: 'flex',
     flexShrink: '0',
     position: 'relative',
@@ -20,32 +20,32 @@ const useStyles = createUseStyles({
       top: '50%',
       pointerEvents: 'none',
     },
+  },
+  boxSpan: ({ disabled, value }) => ({
+    lineHeight: '0',
+    flexShrink: '0',
+    color: disabled ? 'rgb(244, 245, 247)' : value ? 'rgb(0, 82, 204)' : 'rgb(250, 251, 252)',
+    fill: disabled ? 'transparent' : value ? 'rgb(250, 251, 252)' : 'transparent',
+    transition: 'all .2s ease-in-out 0s',
+    '&:hover': {
+      color: disabled ? 'rgb(244, 245, 247)' : 'rgb(235, 236, 240)',
+    },
     '& > span': {
-      lineHeight: '0',
-      flexShrink: '0',
-      color: disabled ? 'rgb(244, 245, 247)' : value ? 'rgb(0, 82, 204)' : 'rgb(250, 251, 252)',
-      fill: disabled ? 'transparent' : value ? 'rgb(250, 251, 252)' : 'transparent',
-      transition: 'all .2s ease-in-out 0s',
-      '&:hover': {
-        color: disabled ? 'rgb(244, 245, 247)' : 'rgb(235, 236, 240)',
-      },
-      '& > span': {
-        display: 'flex',
+      display: 'flex',
+      height: '24px',
+      width: '24px',
+      '& > svg': {
         height: '24px',
         width: '24px',
-        '& > svg': {
-          height: '24px',
-          width: '24px',
-          maxHeight: '100%',
-          maxWidth: '100%',
-          pointerEvents: 'none',
-          fill: 'inherit',
-          '& > g': {
-            '& > rect': {
-              transition: 'stroke .2s ease-in-out 0s',
-              stroke: disabled ? 'default' : value ? 'currentcolor' : 'rgb(233, 225, 230)',
-              stokeWidth: '2px',
-            },
+        maxHeight: '100%',
+        maxWidth: '100%',
+        pointerEvents: 'none',
+        fill: 'inherit',
+        '& > g': {
+          '& > rect': {
+            transition: 'stroke .2s ease-in-out 0s',
+            stroke: disabled ? 'default' : value ? 'currentcolor' : 'rgb(233, 225, 230)',
+            stokeWidth: '2px',
           },
         },
       },
