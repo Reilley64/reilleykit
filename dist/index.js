@@ -1,20 +1,21 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('clsx'), require('react'), require('react-jss'), require('color')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'clsx', 'react', 'react-jss', 'color'], factory) :
-  (global = global || self, factory(global.reilleykit = {}, global.clsx, global.React, global.reactJss, global.Color));
-}(this, (function (exports, clsx, React, reactJss, Color) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('clsx'), require('react'), require('react-jss'), require('color'), require('@fortawesome/free-solid-svg-icons'), require('@fortawesome/react-fontawesome'), require('react-cool-onclickoutside')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'clsx', 'react', 'react-jss', 'color', '@fortawesome/free-solid-svg-icons', '@fortawesome/react-fontawesome', 'react-cool-onclickoutside'], factory) :
+  (global = global || self, factory(global.reilleykit = {}, global.clsx, global.React, global.reactJss, global.Color, global.freeSolidSvgIcons, global.reactFontawesome, global.useOnclickOutside));
+}(this, (function (exports, clsx, React, reactJss, Color, freeSolidSvgIcons, reactFontawesome, useOnclickOutside) { 'use strict';
 
   clsx = clsx && Object.prototype.hasOwnProperty.call(clsx, 'default') ? clsx['default'] : clsx;
   var React__default = 'default' in React ? React['default'] : React;
   Color = Color && Object.prototype.hasOwnProperty.call(Color, 'default') ? Color['default'] : Color;
+  useOnclickOutside = useOnclickOutside && Object.prototype.hasOwnProperty.call(useOnclickOutside, 'default') ? useOnclickOutside['default'] : useOnclickOutside;
 
   var useStyles = reactJss.createUseStyles({
     card: {
       display: 'flex',
       flexDirection: 'column',
-      padding: '16px 16px',
+      padding: '16px',
       borderRadius: '3px',
-      boxShadow: 'rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.31) 0px 0px 1px 0px'
+      boxShadow: 'rgba(9, 30, 66, .25) 0 1px 1px, rgba(9, 30, 66, .31) 0 0 1px 0'
     }
   });
 
@@ -310,7 +311,337 @@
     }, label));
   };
 
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+
+    for (var i = 0, arr2 = new Array(len); i < len; i++) {
+      arr2[i] = arr[i];
+    }
+
+    return arr2;
+  }
+
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(n);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  }
+
+  function _createForOfIteratorHelper(o) {
+    if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
+      if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) {
+        var i = 0;
+
+        var F = function F() {};
+
+        return {
+          s: F,
+          n: function n() {
+            if (i >= o.length) return {
+              done: true
+            };
+            return {
+              done: false,
+              value: o[i++]
+            };
+          },
+          e: function e(_e) {
+            throw _e;
+          },
+          f: F
+        };
+      }
+
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+
+    var it,
+        normalCompletion = true,
+        didErr = false,
+        err;
+    return {
+      s: function s() {
+        it = o[Symbol.iterator]();
+      },
+      n: function n() {
+        var step = it.next();
+        normalCompletion = step.done;
+        return step;
+      },
+      e: function e(_e2) {
+        didErr = true;
+        err = _e2;
+      },
+      f: function f() {
+        try {
+          if (!normalCompletion && it["return"] != null) it["return"]();
+        } finally {
+          if (didErr) throw err;
+        }
+      }
+    };
+  }
+
+  function _arrayWithHoles(arr) {
+    if (Array.isArray(arr)) return arr;
+  }
+
+  function _iterableToArrayLimit(arr, i) {
+    if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _e = undefined;
+
+    try {
+      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);
+
+        if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;
+      _e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"] != null) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+
+    return _arr;
+  }
+
+  function _nonIterableRest() {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  function _slicedToArray(arr, i) {
+    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+  }
+
   var useStyles$5 = reactJss.createUseStyles({
+    container: {
+      position: 'relative'
+    },
+    input: {
+      backgroundColor: 'transparent',
+      border: '0 none',
+      boxSizing: 'border-box',
+      color: 'inherit',
+      cursor: 'inherit',
+      fontFamily: 'inherit',
+      height: '2.6em',
+      minWidth: '0',
+      outline: 'currentcolor none medium',
+      padding: '8px 6px',
+      width: '100%',
+      '&:disabled::placeholder': {
+        color: 'rgb(165, 173, 186)',
+        opacity: '1'
+      }
+    },
+    endAdornment: {
+      display: 'flex',
+      alignItems: 'center',
+      paddingRight: '12px',
+      '& svg': {
+        color: 'rgb(66, 82, 110)',
+        fontSize: '9px'
+      }
+    },
+    wrapper: function wrapper(_ref) {
+      var disabled = _ref.disabled,
+          theme = _ref.theme;
+      return {
+        alignItems: 'center',
+        backgroundColor: 'rgb(250, 251, 252)',
+        border: '2px solid rgb(233, 225, 230)',
+        borderRadius: '3px',
+        boxSizing: 'border-box',
+        cursor: 'text',
+        display: 'flex',
+        flex: '1 1 100%',
+        justifyContent: 'space-between',
+        maxWidth: '100%',
+        overflow: 'hidden',
+        overflowWrap: 'break-word',
+        pointerEvents: 'auto',
+        transition: 'background-color .2s ease-in-out 0s, border-color .2s ease-in-out 0s',
+        verticalAlign: 'top',
+        '&:hover': {
+          backgroundColor: disabled ? 'rgb(250, 251, 252)' : 'rgb(235, 236, 240)'
+        },
+        '&:focus-within': {
+          backgroundColor: 'rgb(255, 255, 255)',
+          borderColor: theme.palette.primary.main
+        }
+      };
+    },
+    label: function label(_ref2) {
+      var theme = _ref2.theme;
+      return {
+        color: theme.palette.text.muted,
+        fontSize: '.85rem'
+      };
+    },
+    requiredSpan: function requiredSpan(_ref3) {
+      var theme = _ref3.theme;
+      return {
+        color: theme.palette.danger.main
+      };
+    },
+    menu: {
+      top: '100%',
+      backgroundColor: 'rgb(255, 255, 255)',
+      borderRadius: '4px',
+      boxShadow: '0 0 0 1px hsla(0, 0%, 0%, .1),0 4px 11px hsla(0, 0%, 0%, .1)',
+      margin: '8px 0',
+      position: 'absolute',
+      width: '100%',
+      zIndex: '1',
+      maxHeight: '300px',
+      overflowY: 'auto',
+      padding: '8px 0'
+    }
+  });
+
+  var Select = function Select(_ref) {
+    var className = _ref.className,
+        children = _ref.children,
+        disabled = _ref.disabled,
+        field = _ref.field,
+        form = _ref.form,
+        label = _ref.label,
+        required = _ref.required,
+        props = _objectWithoutProperties(_ref, ["className", "children", "disabled", "field", "form", "label", "required"]);
+
+    var theme = useTheme();
+    var classes = useStyles$5({
+      disabled: disabled,
+      theme: theme
+    });
+    var ref = React.useRef();
+
+    var _useState = React.useState(false),
+        _useState2 = _slicedToArray(_useState, 2),
+        open = _useState2[0],
+        setOpen = _useState2[1];
+
+    var _useState3 = React.useState(''),
+        _useState4 = _slicedToArray(_useState3, 2),
+        value = _useState4[0],
+        setValue = _useState4[1];
+
+    var getLabel = function getLabel() {
+      var _iterator = _createForOfIteratorHelper(Array.isArray(children) ? children : [children]),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var option = _step.value;
+          if (option.props.value === field.value) return option.props.children;
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      return '';
+    };
+
+    useOnclickOutside(ref, function () {
+      setOpen(false);
+      setValue(getLabel());
+      field.onBlur(field.name);
+    });
+    React.useEffect(function () {
+      setValue(getLabel());
+      field.onBlur(field.name);
+    }, [field.value]);
+    return /*#__PURE__*/React__default.createElement("div", {
+      className: classes.container,
+      ref: ref
+    }, label && /*#__PURE__*/React__default.createElement("label", {
+      className: classes.label
+    }, label, required && /*#__PURE__*/React__default.createElement("span", {
+      className: classes.requiredSpan
+    }, " *")), /*#__PURE__*/React__default.createElement("div", {
+      className: classes.wrapper
+    }, /*#__PURE__*/React__default.createElement("input", Object.assign({
+      className: clsx(classes.input, className)
+    }, props, {
+      disabled: disabled,
+      name: field.name,
+      onChange: function onChange(e) {
+        return setValue(e.target.value);
+      },
+      onFocus: function onFocus() {
+        setValue('');
+        setOpen(true);
+      },
+      required: false,
+      type: 'text',
+      value: value
+    })), /*#__PURE__*/React__default.createElement("div", {
+      className: classes.endAdornment
+    }, /*#__PURE__*/React__default.createElement(reactFontawesome.FontAwesomeIcon, {
+      icon: freeSolidSvgIcons.faChevronDown
+    }))), open && /*#__PURE__*/React__default.createElement("div", {
+      className: classes.menu
+    }, (Array.isArray(children) ? children : [children]).filter(function (child) {
+      return child.props.children.startsWith(value);
+    }).map(function (child) {
+      return React__default.cloneElement(child, {
+        field: field,
+        form: form,
+        getLabel: getLabel,
+        setOpen: setOpen,
+        setValue: setValue
+      });
+    })));
+  };
+
+  var useStyles$6 = reactJss.createUseStyles({
+    item: {
+      display: 'block',
+      padding: '6px 12px',
+      width: '100%',
+      userSelect: 'none',
+      '&:hover': {
+        backgroundColor: 'rgb(235, 236, 240)'
+      }
+    }
+  });
+
+  var SelectItem = function SelectItem(_ref) {
+    var children = _ref.children,
+        field = _ref.field,
+        form = _ref.form,
+        getLabel = _ref.getLabel,
+        setOpen = _ref.setOpen,
+        setValue = _ref.setValue,
+        value = _ref.value;
+    var theme = useTheme();
+    var classes = useStyles$6({
+      theme: theme
+    });
+    return /*#__PURE__*/React__default.createElement("div", {
+      className: classes.item,
+      onClick: function onClick() {
+        setValue(getLabel());
+        setOpen(false);
+        form.setFieldValue(field.name, value);
+      }
+    }, children);
+  };
+
+  var useStyles$7 = reactJss.createUseStyles({
     input: {
       backgroundColor: 'transparent',
       border: '0 none',
@@ -380,7 +711,7 @@
         props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "required"]);
 
     var theme = useTheme();
-    var classes = useStyles$5({
+    var classes = useStyles$7({
       disabled: disabled,
       theme: theme
     });
@@ -398,7 +729,7 @@
     }))));
   };
 
-  var useStyles$6 = reactJss.createUseStyles({
+  var useStyles$8 = reactJss.createUseStyles({
     input: {
       backgroundColor: 'transparent',
       border: '0 none',
@@ -468,7 +799,7 @@
         props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "required"]);
 
     var theme = useTheme();
-    var classes = useStyles$6({
+    var classes = useStyles$8({
       disabled: disabled,
       theme: theme
     });
@@ -492,6 +823,8 @@
   exports.Col = Col;
   exports.Grid = Grid;
   exports.Page = Page;
+  exports.Select = Select;
+  exports.SelectItem = SelectItem;
   exports.Textarea = Textarea;
   exports.Textfield = Textfield;
   exports.ThemeProvider = ThemeProvider;

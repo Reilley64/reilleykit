@@ -6,7 +6,7 @@ const useStyles = createUseStyles({
     flexDirection: 'column',
     padding: '16px',
     borderRadius: '3px',
-    boxShadow: 'rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.31) 0px 0px 1px 0px',
+    boxShadow: 'rgba(9, 30, 66, .25) 0 1px 1px, rgba(9, 30, 66, .31) 0 0 1px 0',
   },
 });
 
