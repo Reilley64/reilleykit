@@ -7,6 +7,7 @@ import useOnclickOutside from 'react-cool-onclickoutside';
 import useStyles from './Select.styles';
 
 import useTheme from '../../../../hooks/useTheme';
+import Popup from '../../../Popup/Popup';
 
 const Select = ({
   className, children, disabled, field, form, label, required, ...props
@@ -63,16 +64,14 @@ const Select = ({
         </div>
       </div>
       {open
-      && <div
-        className={classes.menu}
-      >
+      && <Popup style={{ maxHeight: '18.75rem' }}>
         {(Array.isArray(children) ? children : [children])
           .filter((child) => child.props.children.startsWith(value))
           .map((child) => React.cloneElement(child, {
             field, form, getLabel, setOpen, setValue,
           }))
         }
-      </div>
+      </Popup>
       }
     </div>
   );

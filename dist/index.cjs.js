@@ -9,9 +9,9 @@ var React = require('react');
 var React__default = _interopDefault(React);
 var reactJss = require('react-jss');
 var Color = _interopDefault(require('color'));
+var useOnclickOutside = _interopDefault(require('react-cool-onclickoutside'));
 var freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
 var reactFontawesome = require('@fortawesome/react-fontawesome');
-var useOnclickOutside = _interopDefault(require('react-cool-onclickoutside'));
 
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
@@ -186,6 +186,31 @@ var Card = function Card(_ref) {
 };
 
 var useStyles$2 = reactJss.createUseStyles({
+  menu: {
+    backgroundColor: 'rgb(255, 255, 255)',
+    borderRadius: '.1875rem',
+    overflowY: 'auto',
+    willChange: 'transform',
+    minWidth: '20rem',
+    padding: '.375rem 0'
+  }
+});
+
+var Menu = function Menu(_ref) {
+  var children = _ref.children,
+      className = _ref.className,
+      props = _objectWithoutProperties(_ref, ["children", "className"]);
+
+  var theme = useTheme();
+  var classes = useStyles$2({
+    theme: theme
+  });
+  return /*#__PURE__*/React__default.createElement("div", Object.assign({
+    className: clsx(classes.menu, className)
+  }, props), children);
+};
+
+var useStyles$3 = reactJss.createUseStyles({
   col: function col(_ref) {
     var size = _ref.size;
     return {
@@ -207,7 +232,7 @@ var Col = function Col(_ref) {
       props = _objectWithoutProperties(_ref, ["children", "className", "size"]);
 
   var theme = useTheme();
-  var classes = useStyles$2({
+  var classes = useStyles$3({
     size: size,
     theme: theme
   });
@@ -216,7 +241,7 @@ var Col = function Col(_ref) {
   }, props), children);
 };
 
-var useStyles$3 = reactJss.createUseStyles({
+var useStyles$4 = reactJss.createUseStyles({
   grid: function grid(_ref) {
     var nested = _ref.nested;
     return {
@@ -237,7 +262,7 @@ var Grid = function Grid(_ref) {
       props = _objectWithoutProperties(_ref, ["children", "className", "nested"]);
 
   var theme = useTheme();
-  var classes = useStyles$3({
+  var classes = useStyles$4({
     nested: nested,
     theme: theme
   });
@@ -250,7 +275,7 @@ Grid.defaultProps = {
   nested: false
 };
 
-var useStyles$4 = reactJss.createUseStyles({
+var useStyles$5 = reactJss.createUseStyles({
   page: function page(_ref) {
     var compact = _ref.compact;
     return {
@@ -266,7 +291,7 @@ var Page = function Page(_ref) {
       props = _objectWithoutProperties(_ref, ["children", "className", "compact"]);
 
   var theme = useTheme();
-  var classes = useStyles$4({
+  var classes = useStyles$5({
     compact: compact,
     theme: theme
   });
@@ -275,7 +300,176 @@ var Page = function Page(_ref) {
   }, props), children);
 };
 
-var useStyles$5 = reactJss.createUseStyles({
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArrayLimit(arr, i) {
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(n);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
+
+var useStyles$6 = reactJss.createUseStyles({
+  container: {
+    position: 'relative'
+  }
+});
+
+var Popup = function Popup(_ref) {
+  var button = _ref.button,
+      children = _ref.children,
+      className = _ref.className,
+      style = _ref.style,
+      props = _objectWithoutProperties(_ref, ["button", "children", "className", "style"]);
+
+  var theme = useTheme();
+  var classes = useStyles$6({
+    theme: theme
+  });
+  var ref = React.useRef();
+
+  var _useState = React.useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      open = _useState2[0],
+      setOpen = _useState2[1];
+
+  useOnclickOutside(ref, function () {
+    setOpen(false);
+  });
+
+  if (button) {
+    return /*#__PURE__*/React__default.createElement("div", {
+      className: clsx(classes.container, className),
+      ref: ref
+    }, React__default.cloneElement(button, {
+      onClick: function onClick() {
+        if (button.props.onClick) button.props.onClick();
+        setOpen(true);
+      }
+    }), open && /*#__PURE__*/React__default.createElement(Menu, Object.assign({
+      style: _objectSpread2(_objectSpread2({}, style), {}, {
+        boxShadow: '0 0 0 .0625rem hsla(0, 0%, 0%, .1), 0 .25rem .6875rem hsla(0, 0%, 0%, .1)',
+        position: 'absolute',
+        top: '100%',
+        zIndex: '1'
+      })
+    }, props), children));
+  }
+
+  return /*#__PURE__*/React__default.createElement(Menu, Object.assign({
+    className: className,
+    style: _objectSpread2(_objectSpread2({}, style), {}, {
+      boxShadow: '0 0 0 .0625rem hsla(0, 0%, 0%, .1), 0 .25rem .6875rem hsla(0, 0%, 0%, .1)',
+      position: 'absolute',
+      top: '100%',
+      zIndex: '1'
+    })
+  }, props), children);
+};
+
+Popup.defaultProps = {
+  style: {}
+};
+
+var useStyles$7 = reactJss.createUseStyles({
   wrapper: function wrapper(_ref) {
     var disabled = _ref.disabled,
         theme = _ref.theme;
@@ -349,7 +543,7 @@ var Checkbox = function Checkbox(_ref) {
       props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "style"]);
 
   var theme = useTheme();
-  var classes = useStyles$5({
+  var classes = useStyles$7({
     disabled: disabled,
     theme: theme,
     value: field.value
@@ -386,25 +580,6 @@ var Checkbox = function Checkbox(_ref) {
     className: classes.label
   }, label));
 };
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(n);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
 
 function _createForOfIteratorHelper(o) {
   if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
@@ -461,46 +636,7 @@ function _createForOfIteratorHelper(o) {
   };
 }
 
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-}
-
-var useStyles$6 = reactJss.createUseStyles({
+var useStyles$8 = reactJss.createUseStyles({
   container: {
     position: 'relative'
   },
@@ -570,19 +706,6 @@ var useStyles$6 = reactJss.createUseStyles({
     return {
       color: theme.palette.danger.main
     };
-  },
-  menu: {
-    top: '100%',
-    backgroundColor: 'rgb(255, 255, 255)',
-    borderRadius: '.25rem',
-    boxShadow: '0 0 0 .0625rem hsla(0, 0%, 0%, .1), 0 .25rem .6875rem hsla(0, 0%, 0%, .1)',
-    margin: '.5rem 0',
-    position: 'absolute',
-    width: '100%',
-    zIndex: '1',
-    maxHeight: '18.75rem',
-    overflowY: 'auto',
-    padding: '.5rem 0'
   }
 });
 
@@ -597,7 +720,7 @@ var Select = function Select(_ref) {
       props = _objectWithoutProperties(_ref, ["className", "children", "disabled", "field", "form", "label", "required"]);
 
   var theme = useTheme();
-  var classes = useStyles$6({
+  var classes = useStyles$8({
     disabled: disabled,
     theme: theme
   });
@@ -668,8 +791,10 @@ var Select = function Select(_ref) {
     className: classes.endAdornment
   }, /*#__PURE__*/React__default.createElement(reactFontawesome.FontAwesomeIcon, {
     icon: freeSolidSvgIcons.faChevronDown
-  }))), open && /*#__PURE__*/React__default.createElement("div", {
-    className: classes.menu
+  }))), open && /*#__PURE__*/React__default.createElement(Popup, {
+    style: {
+      maxHeight: '18.75rem'
+    }
   }, (Array.isArray(children) ? children : [children]).filter(function (child) {
     return child.props.children.startsWith(value);
   }).map(function (child) {
@@ -683,7 +808,7 @@ var Select = function Select(_ref) {
   })));
 };
 
-var useStyles$7 = reactJss.createUseStyles({
+var useStyles$9 = reactJss.createUseStyles({
   item: {
     display: 'block',
     padding: '.375rem .75rem',
@@ -704,7 +829,7 @@ var SelectItem = function SelectItem(_ref) {
       setValue = _ref.setValue,
       value = _ref.value;
   var theme = useTheme();
-  var classes = useStyles$7({
+  var classes = useStyles$9({
     theme: theme
   });
   return /*#__PURE__*/React__default.createElement("div", {
@@ -717,7 +842,7 @@ var SelectItem = function SelectItem(_ref) {
   }, children);
 };
 
-var useStyles$8 = reactJss.createUseStyles({
+var useStyles$a = reactJss.createUseStyles({
   input: {
     backgroundColor: 'transparent',
     border: '0 none',
@@ -787,7 +912,7 @@ var Textarea = function Textarea(_ref) {
       props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "required"]);
 
   var theme = useTheme();
-  var classes = useStyles$8({
+  var classes = useStyles$a({
     disabled: disabled,
     theme: theme
   });
@@ -805,7 +930,7 @@ var Textarea = function Textarea(_ref) {
   }))));
 };
 
-var useStyles$9 = reactJss.createUseStyles({
+var useStyles$b = reactJss.createUseStyles({
   input: {
     backgroundColor: 'transparent',
     border: '0 none',
@@ -875,7 +1000,7 @@ var Textfield = function Textfield(_ref) {
       props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "required"]);
 
   var theme = useTheme();
-  var classes = useStyles$9({
+  var classes = useStyles$b({
     disabled: disabled,
     theme: theme
   });
@@ -899,7 +1024,9 @@ exports.Card = Card;
 exports.Checkbox = Checkbox;
 exports.Col = Col;
 exports.Grid = Grid;
+exports.Menu = Menu;
 exports.Page = Page;
+exports.Popup = Popup;
 exports.Select = Select;
 exports.SelectItem = SelectItem;
 exports.Textarea = Textarea;

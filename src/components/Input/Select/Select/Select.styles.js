@@ -61,19 +61,6 @@ const useStyles = createUseStyles({
   requiredSpan: ({ theme }) => ({
     color: theme.palette.danger.main,
   }),
-  menu: {
-    top: '100%',
-    backgroundColor: 'rgb(255, 255, 255)',
-    borderRadius: '.25rem',
-    boxShadow: '0 0 0 .0625rem hsla(0, 0%, 0%, .1), 0 .25rem .6875rem hsla(0, 0%, 0%, .1)',
-    margin: '.5rem 0',
-    position: 'absolute',
-    width: '100%',
-    zIndex: '1',
-    maxHeight: '18.75rem',
-    overflowY: 'auto',
-    padding: '.5rem 0',
-  },
 });
 
 export default useStyles;
