@@ -3,6 +3,7 @@ import { createUseStyles } from 'react-jss';
 const useStyles = createUseStyles({
   button: ({ color, theme }) => ({
     alignItems: 'baseline',
+    borderWidth: '0',
     display: 'inline-flex',
     fontWeight: '500',
     maxWidth: '100%',

@@ -49,6 +49,7 @@
           theme = _ref.theme;
       return {
         alignItems: 'baseline',
+        borderWidth: '0',
         display: 'inline-flex',
         fontWeight: '500',
         maxWidth: '100%',
