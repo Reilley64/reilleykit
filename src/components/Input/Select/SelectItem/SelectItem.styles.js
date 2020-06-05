@@ -3,7 +3,7 @@ import { createUseStyles } from 'react-jss';
 const useStyles = createUseStyles({
   item: {
     display: 'block',
-    padding: '6px 12px',
+    padding: '.375rem .75rem',
     width: '100%',
     userSelect: 'none',
     '&:hover': {

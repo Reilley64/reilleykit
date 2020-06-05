@@ -14,7 +14,7 @@ const useStyles = createUseStyles({
     height: '2.6em',
     minWidth: '0',
     outline: 'currentcolor none medium',
-    padding: '8px 6px',
+    padding: '.5rem .375rem',
     width: '100%',
     '&:disabled::placeholder': {
       color: 'rgb(165, 173, 186)',
@@ -24,17 +24,17 @@ const useStyles = createUseStyles({
   endAdornment: {
     display: 'flex',
     alignItems: 'center',
-    paddingRight: '12px',
+    paddingRight: '.75rem',
     '& svg': {
       color: 'rgb(66, 82, 110)',
-      fontSize: '9px',
+      fontSize: '.5625rem',
     },
   },
   wrapper: ({ disabled, theme }) => ({
     alignItems: 'center',
     backgroundColor: 'rgb(250, 251, 252)',
-    border: '2px solid rgb(233, 225, 230)',
-    borderRadius: '3px',
+    border: '.125rem solid rgb(233, 225, 230)',
+    borderRadius: '.1875rem',
     boxSizing: 'border-box',
     cursor: 'text',
     display: 'flex',
@@ -64,15 +64,15 @@ const useStyles = createUseStyles({
   menu: {
     top: '100%',
     backgroundColor: 'rgb(255, 255, 255)',
-    borderRadius: '4px',
-    boxShadow: '0 0 0 1px hsla(0, 0%, 0%, .1),0 4px 11px hsla(0, 0%, 0%, .1)',
-    margin: '8px 0',
+    borderRadius: '.25rem',
+    boxShadow: '0 0 0 .0625rem hsla(0, 0%, 0%, .1), 0 .25rem .6875rem hsla(0, 0%, 0%, .1)',
+    margin: '.5rem 0',
     position: 'absolute',
     width: '100%',
     zIndex: '1',
-    maxHeight: '300px',
+    maxHeight: '18.75rem',
     overflowY: 'auto',
-    padding: '8px 0',
+    padding: '.5rem 0',
   },
 });
 

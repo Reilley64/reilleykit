@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
     position: 'relative',
     '& > input': {
       left: '50%',
-      margin: '0px',
+      margin: '0',
       opacity: '0',
       padding: '0',
       position: 'absolute',
@@ -32,11 +32,11 @@ const useStyles = createUseStyles({
     },
     '& > span': {
       display: 'flex',
-      height: '24px',
-      width: '24px',
+      height: '1.5rem',
+      width: '1.5rem',
       '& > svg': {
-        height: '24px',
-        width: '24px',
+        height: '1.5rem',
+        width: '1.5rem',
         maxHeight: '100%',
         maxWidth: '100%',
         pointerEvents: 'none',
@@ -45,14 +45,14 @@ const useStyles = createUseStyles({
           '& > rect': {
             transition: 'stroke .2s ease-in-out 0s',
             stroke: disabled ? 'default' : value ? 'currentcolor' : 'rgb(233, 225, 230)',
-            stokeWidth: '2px',
+            stokeWidth: '.125rem',
           },
         },
       },
     },
   }),
   label: {
-    padding: '2px 4px',
+    padding: '.125rem .25rem',
   },
 });
 

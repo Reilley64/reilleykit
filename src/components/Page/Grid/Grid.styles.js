@@ -7,8 +7,8 @@ const useStyles = createUseStyles({
     display: 'flex',
     flexWrap: 'wrap',
     alignItems: 'flex-start',
-    margin: nested ? '-16px -16px 0 -16px' : '-16px 0 0 0',
-    padding: '0 8px',
+    margin: nested ? '-1rem -1rem 0 -1rem' : '-1rem 0 0 0',
+    padding: '0 .5rem',
   }),
 });
 

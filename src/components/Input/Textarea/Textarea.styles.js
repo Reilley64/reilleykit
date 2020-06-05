@@ -11,7 +11,7 @@ const useStyles = createUseStyles({
     height: '2.6em',
     minWidth: '0',
     outline: 'currentcolor none medium',
-    padding: '8px 6px',
+    padding: '.5rem .375rem',
     width: '100%',
     '&:disabled::placeholder': {
       color: 'rgb(165, 173, 186)',
@@ -21,8 +21,8 @@ const useStyles = createUseStyles({
   wrapper: ({ disabled, theme }) => ({
     alignItems: 'center',
     backgroundColor: 'rgb(250, 251, 252)',
-    border: '2px solid rgb(233, 225, 230)',
-    borderRadius: '3px',
+    border: '.125rem solid rgb(233, 225, 230)',
+    borderRadius: '.1875rem',
     boxSizing: 'border-box',
     cursor: 'text',
     display: 'flex',

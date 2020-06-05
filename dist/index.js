@@ -50,6 +50,7 @@
       return {
         alignItems: 'baseline',
         borderWidth: '0',
+        cursor: 'pointer',
         display: 'inline-flex',
         fontWeight: '500',
         maxWidth: '100%',
@@ -58,10 +59,10 @@
         textDecoration: 'none',
         whiteSpace: 'nowrap',
         background: color ? theme.palette[color].main : 'rgba(9, 30, 66, .04)',
-        borderRadius: '3px',
+        borderRadius: '.1875rem',
         color: color ? 'rgb(255, 255, 255)' : 'rgb(66, 82, 110)',
         height: '2.29rem',
-        padding: '0 8px',
+        padding: '0 .5rem',
         transition: 'background 0.1s ease-out',
         verticalAlign: 'middle',
         width: 'auto',
@@ -75,7 +76,7 @@
         '& span': {
           alignSelf: 'center',
           flex: '1 1 auto',
-          margin: '0 4px',
+          margin: '0 .25rem',
           maxWidth: '100%',
           overflow: 'hidden',
           textOverflow: 'ellipsis',
@@ -162,9 +163,9 @@
     card: {
       display: 'flex',
       flexDirection: 'column',
-      padding: '16px',
-      borderRadius: '3px',
-      boxShadow: 'rgba(9, 30, 66, .25) 0 1px 1px, rgba(9, 30, 66, .31) 0 0 1px 0'
+      padding: '1rem',
+      borderRadius: '.1875rem',
+      boxShadow: 'rgba(9, 30, 66, .25) 0 .0625rem .0625rem, rgba(9, 30, 66, .31) 0 0 .0625rem 0'
     }
   });
 
@@ -185,10 +186,10 @@
       var size = _ref.size;
       return {
         alignSelf: 'stretch',
-        flex: "1 0 calc(100% / 12 * ".concat(size, " - 16px)"),
-        margin: '16px 8px 0 8px',
-        maxWidth: "calc(100% / 12 * ".concat(size, " - 16px)"),
-        minWidth: 'calc(100% / 12 - 16px)',
+        flex: "1 0 calc(100% / 12 * ".concat(size, " - 1rem)"),
+        margin: '1rem .5rem 0 .5rem',
+        maxWidth: "calc(100% / 12 * ".concat(size, " - 1rem)"),
+        minWidth: 'calc(100% / 12 - 1rem)',
         overflowWrap: 'break-word',
         transition: 'max-width 300ms cubic-bezier(.4, 0, .2, 1)'
       };
@@ -219,8 +220,8 @@
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'flex-start',
-        margin: nested ? '-16px -16px 0 -16px' : '-16px 0 0 0',
-        padding: '0 8px'
+        margin: nested ? '-1rem -1rem 0 -1rem' : '-1rem 0 0 0',
+        padding: '0 .5rem'
       };
     }
   });
@@ -246,8 +247,11 @@
   };
 
   var useStyles$4 = reactJss.createUseStyles({
-    page: {
-      padding: '16px 0'
+    page: function page(_ref) {
+      var compact = _ref.compact;
+      return {
+        padding: compact ? '1rem 14.25rem' : '1rem 28.5rem'
+      };
     }
   });
 
@@ -281,7 +285,7 @@
       position: 'relative',
       '& > input': {
         left: '50%',
-        margin: '0px',
+        margin: '0',
         opacity: '0',
         padding: '0',
         position: 'absolute',
@@ -305,11 +309,11 @@
         },
         '& > span': {
           display: 'flex',
-          height: '24px',
-          width: '24px',
+          height: '1.5rem',
+          width: '1.5rem',
           '& > svg': {
-            height: '24px',
-            width: '24px',
+            height: '1.5rem',
+            width: '1.5rem',
             maxHeight: '100%',
             maxWidth: '100%',
             pointerEvents: 'none',
@@ -318,7 +322,7 @@
               '& > rect': {
                 transition: 'stroke .2s ease-in-out 0s',
                 stroke: disabled ? 'default' : value ? 'currentcolor' : 'rgb(233, 225, 230)',
-                stokeWidth: '2px'
+                stokeWidth: '.125rem'
               }
             }
           }
@@ -326,7 +330,7 @@
       };
     },
     label: {
-      padding: '2px 4px'
+      padding: '.125rem .25rem'
     }
   });
 
@@ -504,7 +508,7 @@
       height: '2.6em',
       minWidth: '0',
       outline: 'currentcolor none medium',
-      padding: '8px 6px',
+      padding: '.5rem .375rem',
       width: '100%',
       '&:disabled::placeholder': {
         color: 'rgb(165, 173, 186)',
@@ -514,10 +518,10 @@
     endAdornment: {
       display: 'flex',
       alignItems: 'center',
-      paddingRight: '12px',
+      paddingRight: '.75rem',
       '& svg': {
         color: 'rgb(66, 82, 110)',
-        fontSize: '9px'
+        fontSize: '.5625rem'
       }
     },
     wrapper: function wrapper(_ref) {
@@ -526,8 +530,8 @@
       return {
         alignItems: 'center',
         backgroundColor: 'rgb(250, 251, 252)',
-        border: '2px solid rgb(233, 225, 230)',
-        borderRadius: '3px',
+        border: '.125rem solid rgb(233, 225, 230)',
+        borderRadius: '.1875rem',
         boxSizing: 'border-box',
         cursor: 'text',
         display: 'flex',
@@ -564,15 +568,15 @@
     menu: {
       top: '100%',
       backgroundColor: 'rgb(255, 255, 255)',
-      borderRadius: '4px',
-      boxShadow: '0 0 0 1px hsla(0, 0%, 0%, .1),0 4px 11px hsla(0, 0%, 0%, .1)',
-      margin: '8px 0',
+      borderRadius: '.25rem',
+      boxShadow: '0 0 0 .0625rem hsla(0, 0%, 0%, .1), 0 .25rem .6875rem hsla(0, 0%, 0%, .1)',
+      margin: '.5rem 0',
       position: 'absolute',
       width: '100%',
       zIndex: '1',
-      maxHeight: '300px',
+      maxHeight: '18.75rem',
       overflowY: 'auto',
-      padding: '8px 0'
+      padding: '.5rem 0'
     }
   });
 
@@ -676,7 +680,7 @@
   var useStyles$7 = reactJss.createUseStyles({
     item: {
       display: 'block',
-      padding: '6px 12px',
+      padding: '.375rem .75rem',
       width: '100%',
       userSelect: 'none',
       '&:hover': {
@@ -718,7 +722,7 @@
       height: '2.6em',
       minWidth: '0',
       outline: 'currentcolor none medium',
-      padding: '8px 6px',
+      padding: '.5rem .375rem',
       width: '100%',
       '&:disabled::placeholder': {
         color: 'rgb(165, 173, 186)',
@@ -731,8 +735,8 @@
       return {
         alignItems: 'center',
         backgroundColor: 'rgb(250, 251, 252)',
-        border: '2px solid rgb(233, 225, 230)',
-        borderRadius: '3px',
+        border: '.125rem solid rgb(233, 225, 230)',
+        borderRadius: '.1875rem',
         boxSizing: 'border-box',
         cursor: 'text',
         display: 'flex',
@@ -806,7 +810,7 @@
       height: '2.6em',
       minWidth: '0',
       outline: 'currentcolor none medium',
-      padding: '8px 6px',
+      padding: '.5rem .375rem',
       width: '100%',
       '&:disabled::placeholder': {
         color: 'rgb(165, 173, 186)',
@@ -819,8 +823,8 @@
       return {
         alignItems: 'center',
         backgroundColor: 'rgb(250, 251, 252)',
-        border: '2px solid rgb(233, 225, 230)',
-        borderRadius: '3px',
+        border: '.125rem solid rgb(233, 225, 230)',
+        borderRadius: '.1875rem',
         boxSizing: 'border-box',
         cursor: 'text',
         display: 'flex',
