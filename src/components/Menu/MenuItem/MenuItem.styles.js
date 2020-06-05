@@ -1,13 +1,16 @@
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
-  menuItem: {
+  menuItem: ({ onClick }) => ({
     color: 'rgb(0, 0, 0)',
     display: 'flex',
     padding: '.5rem 1.25rem',
     userSelect: 'none',
     width: '100%',
     '&:hover': {
+      backgroundColor: onClick ? 'rgb(235, 236, 240)' : 'transparent',
+    },
+    '&a:hover': {
       backgroundColor: 'rgb(235, 236, 240)',
     },
     '& span': {
@@ -18,7 +21,7 @@ const useStyles = createUseStyles({
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
     },
-  },
+  }),
 });
 
 export default useStyles;

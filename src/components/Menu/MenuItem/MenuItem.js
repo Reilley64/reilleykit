@@ -6,13 +6,13 @@ import useStyles from './MenuItem.styles';
 import useTheme from '../../../hooks/useTheme';
 
 const MenuItem = ({
-  children, className, ...props
+  children, className, onClick, ...props
 }) => {
   const theme = useTheme();
-  const classes = useStyles({ theme });
+  const classes = useStyles({ onClick, theme });
 
   return (
-    <div className={clsx(classes.menuItem, className)} {...props}>
+    <div className={clsx(classes.menuItem, className)} onClick={onClick} {...props}>
       <span>{children}</span>
     </div>
   );

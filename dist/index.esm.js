@@ -182,9 +182,9 @@ var useStyles$2 = createUseStyles({
   menu: {
     backgroundColor: 'rgb(255, 255, 255)',
     borderRadius: '.1875rem',
+    boxShadow: 'rgba(9, 30, 66, .25) 0 .0625rem .0625rem, rgba(9, 30, 66, .31) 0 0 .0625rem 0',
     overflowY: 'auto',
     willChange: 'transform',
-    minWidth: '20rem',
     padding: '.375rem 0'
   }
 });
@@ -204,27 +204,18 @@ var Menu = function Menu(_ref) {
 };
 
 var useStyles$3 = createUseStyles({
-  menuItem: {
-    color: 'rgb(0, 0, 0)',
-    display: 'flex',
-    padding: '.5rem 1.25rem',
-    userSelect: 'none',
-    width: '100%',
-    '&:hover': {
-      backgroundColor: 'rgb(235, 236, 240)'
-    },
-    '& span': {
-      alignItems: 'center',
-      display: 'flex',
-      minHeight: '1.5rem',
-      width: '100%',
-      textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap'
+  menuHeader: {
+    color: 'rgb(107, 119, 140)',
+    textTransform: 'uppercase',
+    marginTop: '1.5rem',
+    marginBottom: '1rem',
+    '&:first-child': {
+      marginTop: '0'
     }
   }
 });
 
-var MenuItem = function MenuItem(_ref) {
+var MenuHeader = function MenuHeader(_ref) {
   var children = _ref.children,
       className = _ref.className,
       props = _objectWithoutProperties(_ref, ["children", "className"]);
@@ -234,11 +225,55 @@ var MenuItem = function MenuItem(_ref) {
     theme: theme
   });
   return /*#__PURE__*/React.createElement("div", Object.assign({
-    className: clsx(classes.menuItem, className)
+    className: clsx(classes.menuHeader, className)
   }, props), /*#__PURE__*/React.createElement("span", null, children));
 };
 
 var useStyles$4 = createUseStyles({
+  menuItem: function menuItem(_ref) {
+    var onClick = _ref.onClick;
+    return {
+      color: 'rgb(0, 0, 0)',
+      display: 'flex',
+      padding: '.5rem 1.25rem',
+      userSelect: 'none',
+      width: '100%',
+      '&:hover': {
+        backgroundColor: onClick ? 'rgb(235, 236, 240)' : 'transparent'
+      },
+      '&a:hover': {
+        backgroundColor: 'rgb(235, 236, 240)'
+      },
+      '& span': {
+        alignItems: 'center',
+        display: 'flex',
+        minHeight: '1.5rem',
+        width: '100%',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap'
+      }
+    };
+  }
+});
+
+var MenuItem = function MenuItem(_ref) {
+  var children = _ref.children,
+      className = _ref.className,
+      onClick = _ref.onClick,
+      props = _objectWithoutProperties(_ref, ["children", "className", "onClick"]);
+
+  var theme = useTheme();
+  var classes = useStyles$4({
+    onClick: onClick,
+    theme: theme
+  });
+  return /*#__PURE__*/React.createElement("div", Object.assign({
+    className: clsx(classes.menuItem, className),
+    onClick: onClick
+  }, props), /*#__PURE__*/React.createElement("span", null, children));
+};
+
+var useStyles$5 = createUseStyles({
   col: function col(_ref) {
     var size = _ref.size;
     return {
@@ -260,7 +295,7 @@ var Col = function Col(_ref) {
       props = _objectWithoutProperties(_ref, ["children", "className", "size"]);
 
   var theme = useTheme();
-  var classes = useStyles$4({
+  var classes = useStyles$5({
     size: size,
     theme: theme
   });
@@ -269,7 +304,7 @@ var Col = function Col(_ref) {
   }, props), children);
 };
 
-var useStyles$5 = createUseStyles({
+var useStyles$6 = createUseStyles({
   grid: function grid(_ref) {
     var nested = _ref.nested;
     return {
@@ -290,7 +325,7 @@ var Grid = function Grid(_ref) {
       props = _objectWithoutProperties(_ref, ["children", "className", "nested"]);
 
   var theme = useTheme();
-  var classes = useStyles$5({
+  var classes = useStyles$6({
     nested: nested,
     theme: theme
   });
@@ -303,7 +338,7 @@ Grid.defaultProps = {
   nested: false
 };
 
-var useStyles$6 = createUseStyles({
+var useStyles$7 = createUseStyles({
   page: function page(_ref) {
     var compact = _ref.compact;
     return {
@@ -319,7 +354,7 @@ var Page = function Page(_ref) {
       props = _objectWithoutProperties(_ref, ["children", "className", "compact"]);
 
   var theme = useTheme();
-  var classes = useStyles$6({
+  var classes = useStyles$7({
     compact: compact,
     theme: theme
   });
@@ -386,7 +421,7 @@ function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
 
-var useStyles$7 = createUseStyles({
+var useStyles$8 = createUseStyles({
   container: {
     position: 'relative'
   },
@@ -407,7 +442,7 @@ var Popup = function Popup(_ref) {
       props = _objectWithoutProperties(_ref, ["button", "children", "className", "style"]);
 
   var theme = useTheme();
-  var classes = useStyles$7({
+  var classes = useStyles$8({
     theme: theme
   });
   var ref = useRef();
@@ -451,7 +486,7 @@ Popup.defaultProps = {
   style: {}
 };
 
-var useStyles$8 = createUseStyles({
+var useStyles$9 = createUseStyles({
   wrapper: function wrapper(_ref) {
     var disabled = _ref.disabled,
         theme = _ref.theme;
@@ -525,7 +560,7 @@ var Checkbox = function Checkbox(_ref) {
       props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "style"]);
 
   var theme = useTheme();
-  var classes = useStyles$8({
+  var classes = useStyles$9({
     disabled: disabled,
     theme: theme,
     value: field.value
@@ -618,7 +653,7 @@ function _createForOfIteratorHelper(o) {
   };
 }
 
-var useStyles$9 = createUseStyles({
+var useStyles$a = createUseStyles({
   container: {
     position: 'relative'
   },
@@ -702,7 +737,7 @@ var Select = function Select(_ref) {
       props = _objectWithoutProperties(_ref, ["className", "children", "disabled", "field", "form", "label", "required"]);
 
   var theme = useTheme();
-  var classes = useStyles$9({
+  var classes = useStyles$a({
     disabled: disabled,
     theme: theme
   });
@@ -807,7 +842,7 @@ var SelectItem = function SelectItem(_ref) {
   }, children);
 };
 
-var useStyles$a = createUseStyles({
+var useStyles$b = createUseStyles({
   input: {
     backgroundColor: 'transparent',
     border: '0 none',
@@ -877,7 +912,7 @@ var Textarea = function Textarea(_ref) {
       props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "required"]);
 
   var theme = useTheme();
-  var classes = useStyles$a({
+  var classes = useStyles$b({
     disabled: disabled,
     theme: theme
   });
@@ -895,7 +930,7 @@ var Textarea = function Textarea(_ref) {
   }))));
 };
 
-var useStyles$b = createUseStyles({
+var useStyles$c = createUseStyles({
   input: {
     backgroundColor: 'transparent',
     border: '0 none',
@@ -965,7 +1000,7 @@ var Textfield = function Textfield(_ref) {
       props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "required"]);
 
   var theme = useTheme();
-  var classes = useStyles$b({
+  var classes = useStyles$c({
     disabled: disabled,
     theme: theme
   });
@@ -984,4 +1019,4 @@ var Textfield = function Textfield(_ref) {
   }))));
 };
 
-export { Button, Card, Checkbox, Col, Grid, Menu, MenuItem, Page, Popup, Select, SelectItem, Textarea, Textfield, ThemeProvider };
+export { Button, Card, Checkbox, Col, Grid, Menu, MenuHeader, MenuItem, Page, Popup, Select, SelectItem, Textarea, Textfield, ThemeProvider };

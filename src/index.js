@@ -1,6 +1,6 @@
 export { Button } from './components/Button';
 export { Card } from './components/Card';
-export { Menu, MenuItem } from './components/Menu';
+export { Menu, MenuHeader, MenuItem } from './components/Menu';
 export { Col, Grid, Page } from './components/Page';
 export { Popup } from './components/Popup';
 export {
