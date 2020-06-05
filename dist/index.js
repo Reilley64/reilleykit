@@ -212,6 +212,7 @@
       textTransform: 'uppercase',
       marginTop: '1.5rem',
       marginBottom: '1rem',
+      padding: '0.5rem 1.25rem',
       '&:first-child': {
         marginTop: '0'
       }
@@ -227,7 +228,7 @@
     var classes = useStyles$3({
       theme: theme
     });
-    return /*#__PURE__*/React__default.createElement("div", Object.assign({
+    return /*#__PURE__*/React__default.createElement("h6", Object.assign({
       className: clsx(classes.menuHeader, className)
     }, props), /*#__PURE__*/React__default.createElement("span", null, children));
   };

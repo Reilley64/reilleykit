@@ -12,9 +12,9 @@ const MenuHeader = ({
   const classes = useStyles({ theme });
 
   return (
-    <div className={clsx(classes.menuHeader, className)} {...props}>
+    <h6 className={clsx(classes.menuHeader, className)} {...props}>
       <span>{children}</span>
-    </div>
+    </h6>
   );
 };
 

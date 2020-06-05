@@ -209,6 +209,7 @@ var useStyles$3 = createUseStyles({
     textTransform: 'uppercase',
     marginTop: '1.5rem',
     marginBottom: '1rem',
+    padding: '0.5rem 1.25rem',
     '&:first-child': {
       marginTop: '0'
     }
@@ -224,7 +225,7 @@ var MenuHeader = function MenuHeader(_ref) {
   var classes = useStyles$3({
     theme: theme
   });
-  return /*#__PURE__*/React.createElement("div", Object.assign({
+  return /*#__PURE__*/React.createElement("h6", Object.assign({
     className: clsx(classes.menuHeader, className)
   }, props), /*#__PURE__*/React.createElement("span", null, children));
 };
