@@ -5,9 +5,11 @@ import useStyles from './Page.styles';
 
 import useTheme from '../../../hooks/useTheme';
 
-const Page = ({ children, className, ...props }) => {
+const Page = ({
+  children, className, compact, ...props
+}) => {
   const theme = useTheme();
-  const classes = useStyles({ theme });
+  const classes = useStyles({ compact, theme });
 
   return (
     <div className={clsx(classes.page, className)} {...props}>

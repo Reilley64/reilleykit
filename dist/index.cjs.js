@@ -262,10 +262,12 @@ var useStyles$4 = reactJss.createUseStyles({
 var Page = function Page(_ref) {
   var children = _ref.children,
       className = _ref.className,
-      props = _objectWithoutProperties(_ref, ["children", "className"]);
+      compact = _ref.compact,
+      props = _objectWithoutProperties(_ref, ["children", "className", "compact"]);
 
   var theme = useTheme();
   var classes = useStyles$4({
+    compact: compact,
     theme: theme
   });
   return /*#__PURE__*/React__default.createElement("div", Object.assign({
