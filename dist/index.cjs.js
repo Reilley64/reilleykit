@@ -254,7 +254,7 @@ var useStyles$4 = reactJss.createUseStyles({
   page: function page(_ref) {
     var compact = _ref.compact;
     return {
-      padding: compact ? '1rem 14.25rem' : '1rem 28.5rem'
+      padding: compact ? '1rem 28.5rem' : '1rem 14.25rem'
     };
   }
 });
