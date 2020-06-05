@@ -1,3 +1,4 @@
+export { Button } from './components/Button';
 export { Card } from './components/Card';
 export { Col, Grid, Page } from './components/Page';
 export {

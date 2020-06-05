@@ -13,13 +13,80 @@ var freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
 var reactFontawesome = require('@fortawesome/react-fontawesome');
 var useOnclickOutside = _interopDefault(require('react-cool-onclickoutside'));
 
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+  var target = _objectWithoutPropertiesLoose(source, excluded);
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
 var useStyles = reactJss.createUseStyles({
-  card: {
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '16px',
-    borderRadius: '3px',
-    boxShadow: 'rgba(9, 30, 66, .25) 0 1px 1px, rgba(9, 30, 66, .31) 0 0 1px 0'
+  button: function button(_ref) {
+    var color = _ref.color,
+        theme = _ref.theme;
+    return {
+      alignItems: 'baseline',
+      display: 'inline-flex',
+      fontWeight: '500',
+      maxWidth: '100%',
+      outline: 'none',
+      textAlign: 'center',
+      textDecoration: 'none',
+      whiteSpace: 'nowrap',
+      background: color ? theme.palette[color].main : 'rgba(9, 30, 66, .04)',
+      borderRadius: '3px',
+      color: color ? 'rgb(255, 255, 255)' : 'rgb(66, 82, 110)',
+      height: '2.29rem',
+      padding: '0 8px',
+      transition: 'background 0.1s ease-out',
+      verticalAlign: 'middle',
+      width: 'auto',
+      '&:hover': {
+        background: color ? theme.palette[color].light : 'rgba(9, 30, 66, .08)'
+      },
+      '&:focus': {
+        background: color ? theme.palette[color].dark : 'rgba(179, 212, 255, .8)',
+        color: color ? 'rgb(255, 255, 255)' : theme.palette.primary.main
+      },
+      '& span': {
+        alignSelf: 'center',
+        flex: '1 1 auto',
+        margin: '0 4px',
+        maxWidth: '100%',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+        transition: 'opacity 0.3s ease 0s',
+        opacity: '1'
+      }
+    };
   }
 });
 
@@ -72,11 +139,43 @@ var useTheme = function useTheme() {
   return React.useContext(ThemeContext);
 };
 
+var Button = function Button(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      color = _ref.color,
+      disabled = _ref.disabled,
+      required = _ref.required,
+      type = _ref.type,
+      props = _objectWithoutProperties(_ref, ["className", "children", "color", "disabled", "required", "type"]);
+
+  var theme = useTheme();
+  var classes = useStyles({
+    color: color,
+    disabled: disabled,
+    theme: theme
+  });
+  return /*#__PURE__*/React__default.createElement("button", Object.assign({
+    className: clsx(classes.button, className)
+  }, props, {
+    type: type || 'button'
+  }), /*#__PURE__*/React__default.createElement("span", null, children));
+};
+
+var useStyles$1 = reactJss.createUseStyles({
+  card: {
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '16px',
+    borderRadius: '3px',
+    boxShadow: 'rgba(9, 30, 66, .25) 0 1px 1px, rgba(9, 30, 66, .31) 0 0 1px 0'
+  }
+});
+
 var Card = function Card(_ref) {
   var children = _ref.children,
       classname = _ref.classname;
   var theme = useTheme();
-  var classes = useStyles({
+  var classes = useStyles$1({
     theme: theme
   });
   return /*#__PURE__*/React__default.createElement("div", {
@@ -84,41 +183,7 @@ var Card = function Card(_ref) {
   }, children);
 };
 
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
-
-function _objectWithoutProperties(source, excluded) {
-  if (source == null) return {};
-  var target = _objectWithoutPropertiesLoose(source, excluded);
-  var key, i;
-
-  if (Object.getOwnPropertySymbols) {
-    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-
-    for (i = 0; i < sourceSymbolKeys.length; i++) {
-      key = sourceSymbolKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-      target[key] = source[key];
-    }
-  }
-
-  return target;
-}
-
-var useStyles$1 = reactJss.createUseStyles({
+var useStyles$2 = reactJss.createUseStyles({
   col: function col(_ref) {
     var size = _ref.size;
     return {
@@ -140,7 +205,7 @@ var Col = function Col(_ref) {
       props = _objectWithoutProperties(_ref, ["children", "className", "size"]);
 
   var theme = useTheme();
-  var classes = useStyles$1({
+  var classes = useStyles$2({
     size: size,
     theme: theme
   });
@@ -149,7 +214,7 @@ var Col = function Col(_ref) {
   }, props), children);
 };
 
-var useStyles$2 = reactJss.createUseStyles({
+var useStyles$3 = reactJss.createUseStyles({
   grid: function grid(_ref) {
     var nested = _ref.nested;
     return {
@@ -170,7 +235,7 @@ var Grid = function Grid(_ref) {
       props = _objectWithoutProperties(_ref, ["children", "className", "nested"]);
 
   var theme = useTheme();
-  var classes = useStyles$2({
+  var classes = useStyles$3({
     nested: nested,
     theme: theme
   });
@@ -183,7 +248,7 @@ Grid.defaultProps = {
   nested: false
 };
 
-var useStyles$3 = reactJss.createUseStyles({
+var useStyles$4 = reactJss.createUseStyles({
   page: {
     padding: '16px 0'
   }
@@ -195,7 +260,7 @@ var Page = function Page(_ref) {
       props = _objectWithoutProperties(_ref, ["children", "className"]);
 
   var theme = useTheme();
-  var classes = useStyles$3({
+  var classes = useStyles$4({
     theme: theme
   });
   return /*#__PURE__*/React__default.createElement("div", Object.assign({
@@ -203,7 +268,7 @@ var Page = function Page(_ref) {
   }, props), children);
 };
 
-var useStyles$4 = reactJss.createUseStyles({
+var useStyles$5 = reactJss.createUseStyles({
   wrapper: function wrapper(_ref) {
     var disabled = _ref.disabled,
         theme = _ref.theme;
@@ -277,7 +342,7 @@ var Checkbox = function Checkbox(_ref) {
       props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "style"]);
 
   var theme = useTheme();
-  var classes = useStyles$4({
+  var classes = useStyles$5({
     disabled: disabled,
     theme: theme,
     value: field.value
@@ -428,7 +493,7 @@ function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
 
-var useStyles$5 = reactJss.createUseStyles({
+var useStyles$6 = reactJss.createUseStyles({
   container: {
     position: 'relative'
   },
@@ -525,7 +590,7 @@ var Select = function Select(_ref) {
       props = _objectWithoutProperties(_ref, ["className", "children", "disabled", "field", "form", "label", "required"]);
 
   var theme = useTheme();
-  var classes = useStyles$5({
+  var classes = useStyles$6({
     disabled: disabled,
     theme: theme
   });
@@ -611,7 +676,7 @@ var Select = function Select(_ref) {
   })));
 };
 
-var useStyles$6 = reactJss.createUseStyles({
+var useStyles$7 = reactJss.createUseStyles({
   item: {
     display: 'block',
     padding: '6px 12px',
@@ -632,7 +697,7 @@ var SelectItem = function SelectItem(_ref) {
       setValue = _ref.setValue,
       value = _ref.value;
   var theme = useTheme();
-  var classes = useStyles$6({
+  var classes = useStyles$7({
     theme: theme
   });
   return /*#__PURE__*/React__default.createElement("div", {
@@ -645,7 +710,7 @@ var SelectItem = function SelectItem(_ref) {
   }, children);
 };
 
-var useStyles$7 = reactJss.createUseStyles({
+var useStyles$8 = reactJss.createUseStyles({
   input: {
     backgroundColor: 'transparent',
     border: '0 none',
@@ -715,7 +780,7 @@ var Textarea = function Textarea(_ref) {
       props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "required"]);
 
   var theme = useTheme();
-  var classes = useStyles$7({
+  var classes = useStyles$8({
     disabled: disabled,
     theme: theme
   });
@@ -733,7 +798,7 @@ var Textarea = function Textarea(_ref) {
   }))));
 };
 
-var useStyles$8 = reactJss.createUseStyles({
+var useStyles$9 = reactJss.createUseStyles({
   input: {
     backgroundColor: 'transparent',
     border: '0 none',
@@ -803,7 +868,7 @@ var Textfield = function Textfield(_ref) {
       props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "required"]);
 
   var theme = useTheme();
-  var classes = useStyles$8({
+  var classes = useStyles$9({
     disabled: disabled,
     theme: theme
   });
@@ -822,6 +887,7 @@ var Textfield = function Textfield(_ref) {
   }))));
 };
 
+exports.Button = Button;
 exports.Card = Card;
 exports.Checkbox = Checkbox;
 exports.Col = Col;
