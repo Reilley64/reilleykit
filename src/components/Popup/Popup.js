@@ -34,12 +34,14 @@ const Popup = ({
           className={classes.popup}
           {...props}
         >
-          {React.cloneElement(children, {
-            onClick: () => {
-              if (children.props.onClick) children.props.onClick();
-              setOpen(false);
-            },
-          })}
+          {(Array.isArray(children) ? children : children).map((child) => (
+            React.cloneElement(child, {
+              onClick: () => {
+                if (children.props.onClick) children.props.onClick();
+                setOpen(false);
+              },
+            })
+          ))}
         </Menu>
         }
       </div>

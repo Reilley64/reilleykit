@@ -439,11 +439,13 @@ var Popup = function Popup(_ref) {
       }
     }), open && /*#__PURE__*/React__default.createElement(Menu, Object.assign({
       className: classes.popup
-    }, props), React__default.cloneElement(children, {
-      onClick: function onClick() {
-        if (children.props.onClick) children.props.onClick();
-        setOpen(false);
-      }
+    }, props), (Array.isArray(children) ? children : children).map(function (child) {
+      return React__default.cloneElement(child, {
+        onClick: function onClick() {
+          if (children.props.onClick) children.props.onClick();
+          setOpen(false);
+        }
+      });
     })));
   }
 
@@ -552,7 +554,7 @@ var Checkbox = function Checkbox(_ref) {
     focusable: 'false',
     role: 'presentation'
   }, /*#__PURE__*/React__default.createElement("g", {
-    "fill-rule": 'evenodd'
+    fillRule: 'evenodd'
   }, /*#__PURE__*/React__default.createElement("rect", {
     fill: 'currentColor',
     x: '6',
