@@ -439,7 +439,12 @@ var Popup = function Popup(_ref) {
       }
     }), open && /*#__PURE__*/React__default.createElement(Menu, Object.assign({
       className: classes.popup
-    }, props), children));
+    }, props), React__default.cloneElement(children, {
+      onClick: function onClick() {
+        if (children.props.onClick) children.props.onClick();
+        setOpen(false);
+      }
+    })));
   }
 
   return /*#__PURE__*/React__default.createElement(Menu, Object.assign({
