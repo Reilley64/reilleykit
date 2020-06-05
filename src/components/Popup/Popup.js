@@ -31,13 +31,7 @@ const Popup = ({
         })}
         {open
         && <Menu
-          style={{
-            ...style,
-            boxShadow: '0 0 0 .0625rem hsla(0, 0%, 0%, .1), 0 .25rem .6875rem hsla(0, 0%, 0%, .1)',
-            position: 'absolute',
-            top: '100%',
-            zIndex: '1',
-          }}
+          className={classes.popup}
           {...props}
         >
           {children}
@@ -48,14 +42,7 @@ const Popup = ({
   }
   return (
     <Menu
-      className={className}
-      style={{
-        ...style,
-        boxShadow: '0 0 0 .0625rem hsla(0, 0%, 0%, .1), 0 .25rem .6875rem hsla(0, 0%, 0%, .1)',
-        position: 'absolute',
-        top: '100%',
-        zIndex: '1',
-      }}
+      className={clsx(classes.popup, className)}
       {...props}
     >
       {children}

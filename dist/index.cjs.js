@@ -300,55 +300,6 @@ var Page = function Page(_ref) {
   }, props), children);
 };
 
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly) symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    });
-    keys.push.apply(keys, symbols);
-  }
-
-  return keys;
-}
-
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-
-    if (i % 2) {
-      ownKeys(Object(source), true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  }
-
-  return target;
-}
-
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
 }
@@ -410,6 +361,13 @@ function _slicedToArray(arr, i) {
 var useStyles$6 = reactJss.createUseStyles({
   container: {
     position: 'relative'
+  },
+  popup: {
+    boxShadow: '0 0 0 .0625rem hsla(0, 0%, 0%, .1), 0 .25rem .6875rem hsla(0, 0%, 0%, .1)',
+    margin: '.5rem 0',
+    position: 'absolute',
+    top: '100%',
+    zIndex: '1'
   }
 });
 
@@ -445,23 +403,12 @@ var Popup = function Popup(_ref) {
         setOpen(true);
       }
     }), open && /*#__PURE__*/React__default.createElement(Menu, Object.assign({
-      style: _objectSpread2(_objectSpread2({}, style), {}, {
-        boxShadow: '0 0 0 .0625rem hsla(0, 0%, 0%, .1), 0 .25rem .6875rem hsla(0, 0%, 0%, .1)',
-        position: 'absolute',
-        top: '100%',
-        zIndex: '1'
-      })
+      className: classes.popup
     }, props), children));
   }
 
   return /*#__PURE__*/React__default.createElement(Menu, Object.assign({
-    className: className,
-    style: _objectSpread2(_objectSpread2({}, style), {}, {
-      boxShadow: '0 0 0 .0625rem hsla(0, 0%, 0%, .1), 0 .25rem .6875rem hsla(0, 0%, 0%, .1)',
-      position: 'absolute',
-      top: '100%',
-      zIndex: '1'
-    })
+    className: clsx(classes.popup, className)
   }, props), children);
 };
 
