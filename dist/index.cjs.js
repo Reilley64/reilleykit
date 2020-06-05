@@ -756,16 +756,39 @@ var Select = function Select(_ref) {
 };
 
 var useStyles$9 = reactJss.createUseStyles({
-  item: {
-    display: 'block',
-    padding: '.375rem .75rem',
-    width: '100%',
+  menuItem: {
+    color: 'rgb(0, 0, 0)',
+    display: 'flex',
+    padding: '.5rem 1.25rem',
     userSelect: 'none',
+    width: '100%',
     '&:hover': {
       backgroundColor: 'rgb(235, 236, 240)'
+    },
+    '& span': {
+      alignItems: 'center',
+      display: 'flex',
+      minHeight: '1.5rem',
+      width: '100%',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap'
     }
   }
 });
+
+var MenuItem = function MenuItem(_ref) {
+  var children = _ref.children,
+      className = _ref.className,
+      props = _objectWithoutProperties(_ref, ["children", "className"]);
+
+  var theme = useTheme();
+  var classes = useStyles$9({
+    theme: theme
+  });
+  return /*#__PURE__*/React__default.createElement("div", Object.assign({
+    className: clsx(classes.menuItem, className)
+  }, props), /*#__PURE__*/React__default.createElement("span", null, children));
+};
 
 var SelectItem = function SelectItem(_ref) {
   var children = _ref.children,
@@ -775,12 +798,7 @@ var SelectItem = function SelectItem(_ref) {
       setOpen = _ref.setOpen,
       setValue = _ref.setValue,
       value = _ref.value;
-  var theme = useTheme();
-  var classes = useStyles$9({
-    theme: theme
-  });
-  return /*#__PURE__*/React__default.createElement("div", {
-    className: classes.item,
+  return /*#__PURE__*/React__default.createElement(MenuItem, {
     onClick: function onClick() {
       setValue(getLabel());
       setOpen(false);
