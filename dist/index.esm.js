@@ -435,7 +435,7 @@ var Popup = function Popup(_ref) {
     }, props), (Array.isArray(children) ? children : children).map(function (child) {
       return React.cloneElement(child, {
         onClick: function onClick() {
-          if (children.props.onClick) children.props.onClick();
+          if (child.props.onClick) child.props.onClick();
           setOpen(false);
         }
       });
