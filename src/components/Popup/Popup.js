@@ -8,7 +8,7 @@ import useTheme from '../../hooks/useTheme';
 import { Menu } from '../Menu';
 
 const Popup = ({
-  button, children, className, style, ...props
+  button, children, className, ...props
 }) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
@@ -22,7 +22,7 @@ const Popup = ({
 
   if (button) {
     return (
-      <div className={clsx(classes.container, className)} ref={ref}>
+      <div className={classes.container} ref={ref}>
         {React.cloneElement(button, {
           onClick: () => {
             if (button.props.onClick) button.props.onClick();
@@ -31,7 +31,7 @@ const Popup = ({
         })}
         {open
         && <Menu
-          className={classes.popup}
+          className={clsx(classes.popup, className)}
           {...props}
         >
           {(Array.isArray(children) ? children : children).map((child) => (
@@ -55,10 +55,6 @@ const Popup = ({
       {children}
     </Menu>
   );
-};
-
-Popup.defaultProps = {
-  style: {},
 };
 
 export default Popup;

@@ -446,8 +446,7 @@ var Popup = function Popup(_ref) {
   var button = _ref.button,
       children = _ref.children,
       className = _ref.className,
-      style = _ref.style,
-      props = _objectWithoutProperties(_ref, ["button", "children", "className", "style"]);
+      props = _objectWithoutProperties(_ref, ["button", "children", "className"]);
 
   var theme = useTheme();
   var classes = useStyles$8({
@@ -466,7 +465,7 @@ var Popup = function Popup(_ref) {
 
   if (button) {
     return /*#__PURE__*/React__default.createElement("div", {
-      className: clsx(classes.container, className),
+      className: classes.container,
       ref: ref
     }, React__default.cloneElement(button, {
       onClick: function onClick() {
@@ -474,7 +473,7 @@ var Popup = function Popup(_ref) {
         setOpen(!open);
       }
     }), open && /*#__PURE__*/React__default.createElement(Menu, Object.assign({
-      className: classes.popup
+      className: clsx(classes.popup, className)
     }, props), (Array.isArray(children) ? children : children).map(function (child) {
       return React__default.cloneElement(child, {
         onClick: function onClick() {
@@ -488,10 +487,6 @@ var Popup = function Popup(_ref) {
   return /*#__PURE__*/React__default.createElement(Menu, Object.assign({
     className: clsx(classes.popup, className)
   }, props), children);
-};
-
-Popup.defaultProps = {
-  style: {}
 };
 
 var useStyles$9 = reactJss.createUseStyles({
