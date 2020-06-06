@@ -8,6 +8,7 @@ const useStyles = createUseStyles({
     overflowY: 'auto',
     willChange: 'transform',
     padding: '.375rem 0',
+    width: '100%',
   },
 });
 

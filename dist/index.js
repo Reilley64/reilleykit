@@ -187,7 +187,8 @@
       boxShadow: 'rgba(9, 30, 66, .25) 0 .0625rem .0625rem, rgba(9, 30, 66, .31) 0 0 .0625rem 0',
       overflowY: 'auto',
       willChange: 'transform',
-      padding: '.375rem 0'
+      padding: '.375rem 0',
+      width: '100%'
     }
   });
 
@@ -234,19 +235,16 @@
 
   var useStyles$4 = reactJss.createUseStyles({
     menuItem: function menuItem(_ref) {
-      var onClick = _ref.onClick,
-          to = _ref.to;
+      var link = _ref.link,
+          onClick = _ref.onClick;
       return {
         color: 'rgb(0, 0, 0)',
         display: 'flex',
         padding: '.5rem 1.25rem',
-        userSelect: onClick || to ? 'none' : 'default',
+        userSelect: link || onClick ? 'none' : 'default',
         width: '100%',
         '&:hover': {
-          backgroundColor: onClick || to ? 'rgb(235, 236, 240)' : 'transparent'
-        },
-        '&a:hover': {
-          backgroundColor: 'rgb(235, 236, 240)'
+          backgroundColor: link || onClick ? 'rgb(235, 236, 240)' : 'transparent'
         },
         '& span': {
           alignItems: 'center',
@@ -263,14 +261,14 @@
   var MenuItem = function MenuItem(_ref) {
     var children = _ref.children,
         className = _ref.className,
+        link = _ref.link,
         onClick = _ref.onClick,
-        to = _ref.to,
-        props = _objectWithoutProperties(_ref, ["children", "className", "onClick", "to"]);
+        props = _objectWithoutProperties(_ref, ["children", "className", "link", "onClick"]);
 
     var theme = useTheme();
     var classes = useStyles$4({
+      link: link,
       onClick: onClick,
-      to: to,
       theme: theme
     });
     return /*#__PURE__*/React__default.createElement("div", Object.assign({

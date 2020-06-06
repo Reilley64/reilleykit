@@ -1,17 +1,14 @@
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
-  menuItem: ({ onClick, to }) => ({
+  menuItem: ({ link, onClick }) => ({
     color: 'rgb(0, 0, 0)',
     display: 'flex',
     padding: '.5rem 1.25rem',
-    userSelect: onClick || to ? 'none' : 'default',
+    userSelect: link || onClick ? 'none' : 'default',
     width: '100%',
     '&:hover': {
-      backgroundColor: onClick || to ? 'rgb(235, 236, 240)' : 'transparent',
-    },
-    '&a:hover': {
-      backgroundColor: 'rgb(235, 236, 240)',
+      backgroundColor: link || onClick ? 'rgb(235, 236, 240)' : 'transparent',
     },
     '& span': {
       alignItems: 'center',
