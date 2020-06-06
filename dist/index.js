@@ -153,10 +153,9 @@
       theme: theme
     });
     return /*#__PURE__*/React__default.createElement("button", Object.assign({
-      className: clsx(classes.button, className)
-    }, props, {
+      className: clsx(classes.button, className),
       type: type || 'button'
-    }), /*#__PURE__*/React__default.createElement("span", null, children));
+    }, props), /*#__PURE__*/React__default.createElement("span", null, children));
   };
 
   var useStyles$1 = reactJss.createUseStyles({
@@ -235,15 +234,16 @@
 
   var useStyles$4 = reactJss.createUseStyles({
     menuItem: function menuItem(_ref) {
-      var onClick = _ref.onClick;
+      var onClick = _ref.onClick,
+          to = _ref.to;
       return {
         color: 'rgb(0, 0, 0)',
         display: 'flex',
         padding: '.5rem 1.25rem',
-        userSelect: 'none',
+        userSelect: onClick || to ? 'default' : 'none',
         width: '100%',
         '&:hover': {
-          backgroundColor: onClick ? 'rgb(235, 236, 240)' : 'transparent'
+          backgroundColor: onClick || to ? 'rgb(235, 236, 240)' : 'transparent'
         },
         '&a:hover': {
           backgroundColor: 'rgb(235, 236, 240)'

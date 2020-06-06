@@ -12,7 +12,11 @@ const Button = ({
   const classes = useStyles({ color, disabled, theme });
 
   return (
-    <button className={clsx(classes.button, className)} {...props} type={type || 'button'}>
+    <button
+      className={clsx(classes.button, className)}
+      type={type || 'button'}
+      {...props}
+    >
       <span>{children}</span>
     </button>
   );
