@@ -240,7 +240,7 @@
         color: 'rgb(0, 0, 0)',
         display: 'flex',
         padding: '.5rem 1.25rem',
-        userSelect: onClick || to ? 'default' : 'none',
+        userSelect: onClick || to ? 'none' : 'default',
         width: '100%',
         '&:hover': {
           backgroundColor: onClick || to ? 'rgb(235, 236, 240)' : 'transparent'
@@ -264,11 +264,13 @@
     var children = _ref.children,
         className = _ref.className,
         onClick = _ref.onClick,
-        props = _objectWithoutProperties(_ref, ["children", "className", "onClick"]);
+        to = _ref.to,
+        props = _objectWithoutProperties(_ref, ["children", "className", "onClick", "to"]);
 
     var theme = useTheme();
     var classes = useStyles$4({
       onClick: onClick,
+      to: to,
       theme: theme
     });
     return /*#__PURE__*/React__default.createElement("div", Object.assign({
