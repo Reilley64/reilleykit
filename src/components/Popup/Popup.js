@@ -26,7 +26,7 @@ const Popup = ({
         {React.cloneElement(button, {
           onClick: () => {
             if (button.props.onClick) button.props.onClick();
-            setOpen(true);
+            setOpen(!open);
           },
         })}
         {open

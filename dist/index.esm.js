@@ -466,7 +466,7 @@ var Popup = function Popup(_ref) {
     }, React.cloneElement(button, {
       onClick: function onClick() {
         if (button.props.onClick) button.props.onClick();
-        setOpen(true);
+        setOpen(!open);
       }
     }), open && /*#__PURE__*/React.createElement(Menu, Object.assign({
       className: classes.popup
