@@ -1033,6 +1033,7 @@
   exports.Textarea = Textarea;
   exports.Textfield = Textfield;
   exports.ThemeProvider = ThemeProvider;
+  exports.useTheme = useTheme;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 

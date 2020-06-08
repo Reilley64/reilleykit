@@ -1015,4 +1015,4 @@ var Textfield = function Textfield(_ref) {
   }))));
 };
 
-export { Button, Card, Checkbox, Col, Grid, Menu, MenuHeader, MenuItem, Page, Popup, Select, SelectItem, Textarea, Textfield, ThemeProvider };
+export { Button, Card, Checkbox, Col, Grid, Menu, MenuHeader, MenuItem, Page, Popup, Select, SelectItem, Textarea, Textfield, ThemeProvider, useTheme };

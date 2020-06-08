@@ -7,3 +7,5 @@ export {
   Checkbox, Select, SelectItem, Textarea, Textfield,
 } from './components/Input';
 export { default as ThemeProvider } from './components/ThemeProvider';
+
+export { default as useTheme } from './hooks/useTheme';

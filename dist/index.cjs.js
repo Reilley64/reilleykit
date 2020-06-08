@@ -1037,3 +1037,4 @@ exports.SelectItem = SelectItem;
 exports.Textarea = Textarea;
 exports.Textfield = Textfield;
 exports.ThemeProvider = ThemeProvider;
+exports.useTheme = useTheme;
