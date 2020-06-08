@@ -996,7 +996,8 @@
         field = _ref.field,
         label = _ref.label,
         required = _ref.required,
-        props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "required"]);
+        type = _ref.type,
+        props = _objectWithoutProperties(_ref, ["className", "disabled", "field", "label", "required", "type"]);
 
     var theme = useTheme();
     var classes = useStyles$c({
@@ -1013,7 +1014,7 @@
       className: clsx(classes.input, className)
     }, field, props, {
       disabled: disabled,
-      type: 'text',
+      type: type || 'text',
       required: false
     }))));
   };

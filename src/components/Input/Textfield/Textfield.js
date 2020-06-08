@@ -6,7 +6,7 @@ import useStyles from './Textfield.styles';
 import useTheme from '../../../hooks/useTheme';
 
 const Textfield = ({
-  className, disabled, field, label, required, ...props
+  className, disabled, field, label, required, type, ...props
 }) => {
   const theme = useTheme();
   const classes = useStyles({ disabled, theme });
@@ -24,7 +24,7 @@ const Textfield = ({
           {...field}
           {...props}
           disabled={disabled}
-          type={'text'}
+          type={type || 'text'}
           required={false}
         />
       </div>
