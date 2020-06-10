@@ -16,6 +16,7 @@ const Select = ({
   const classes = useStyles({ disabled, theme });
 
   const ref = useRef();
+  const inputRef = useRef();
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState('');
 
@@ -55,11 +56,12 @@ const Select = ({
             setValue('');
             setOpen(true);
           }}
+          ref={inputRef}
           required={false}
           type={'text'}
           value={value}
         />
-        <div className={classes.endAdornment}>
+        <div className={classes.endAdornment} onClick={() => inputRef.current.focus()}>
           <FontAwesomeIcon icon={faChevronDown}/>
         </div>
       </div>
