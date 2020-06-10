@@ -34,7 +34,7 @@ const Popup = ({
           className={clsx(classes.popup, className)}
           {...props}
         >
-          {(Array.isArray(children) ? children : children).map((child) => (
+          {(Array.isArray(children) ? children : [children]).map((child) => (
             React.cloneElement(child, {
               onClick: () => {
                 if (child.props.onClick) child.props.onClick();
@@ -52,7 +52,7 @@ const Popup = ({
       className={clsx(classes.popup, className)}
       {...props}
     >
-      {children}
+      {Array.isArray(children) ? children : [children]}
     </Menu>
   );
 };
