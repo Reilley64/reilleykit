@@ -36,7 +36,8 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "lint": "eslint ./src/ --fix"
+    "lint": "eslint ./src/ --fix",
+    "postinstall": "rollup -c"
   },
   "eslintConfig": {
     "extends": "react-app"
