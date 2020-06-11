@@ -5,10 +5,10 @@ const useStyles = createUseStyles({
     color: 'rgb(0, 0, 0)',
     display: 'flex',
     padding: '.5rem 1.25rem',
-    userSelect: link || onClick ? 'none' : 'default',
+    userSelect: (link || onClick) ? 'none' : 'default',
     width: '100%',
     '&:hover': {
-      backgroundColor: link || onClick ? 'rgb(235, 236, 240)' : 'transparent',
+      backgroundColor: (link || onClick) ? 'rgb(235, 236, 240)' : 'transparent',
     },
     '& span': {
       alignItems: 'center',

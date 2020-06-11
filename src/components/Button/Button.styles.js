@@ -27,18 +27,18 @@ const useStyles = createUseStyles({
       background: color ? theme.palette[color].dark : 'rgba(179, 212, 255, .8)',
       color: color ? 'rgb(255, 255, 255)' : theme.palette.primary.main,
     },
-    '& span': {
-      alignSelf: 'center',
-      flex: '1 1 auto',
-      margin: '0 .25rem',
-      maxWidth: '100%',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap',
-      transition: 'opacity 0.3s ease 0s',
-      opacity: '1',
-    },
   }),
+  buttonSpan: {
+    alignSelf: 'center',
+    flex: '1 1 auto',
+    margin: '0 .25rem',
+    maxWidth: '100%',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    transition: 'opacity 0.3s ease 0s',
+    opacity: '1',
+  },
 });
 
 export default useStyles;

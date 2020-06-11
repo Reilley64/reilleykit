@@ -17,7 +17,7 @@ const Button = ({
       type={type || 'button'}
       {...props}
     >
-      <span>{children}</span>
+      <span className={classes.buttonSpan}>{children}</span>
     </button>
   );
 };
