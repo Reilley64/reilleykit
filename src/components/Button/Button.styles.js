@@ -23,7 +23,7 @@ const useStyles = createUseStyles({
     '&:hover': {
       background: color ? theme.palette[color].light : 'rgba(9, 30, 66, .08)',
     },
-    '&:focus': {
+    '&:active': {
       background: color ? theme.palette[color].dark : 'rgba(179, 212, 255, .8)',
       color: color ? 'rgb(255, 255, 255)' : theme.palette.primary.main,
     },

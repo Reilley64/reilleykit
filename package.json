@@ -37,7 +37,7 @@
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint ./src/ --fix",
-    "postinstall": "rollup -c"
+    "postinstall": "yarn build"
   },
   "eslintConfig": {
     "extends": "react-app"
