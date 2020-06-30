@@ -7,7 +7,7 @@ const ThemeProvider = ({ children }) => {
   const value = {
     palette: {
       primary: {
-        main: 'rgb(51, 94, 234)',
+        main: 'rgb(103, 183, 220)',
       },
       secondary: {
         main: 'rgb(145, 156, 167)',
@@ -26,7 +26,7 @@ const ThemeProvider = ({ children }) => {
       },
       text: {
         base: 'rgb(0, 0, 0)',
-        muted: 'rgba(0, 0, 0, .62)',
+        muted: 'rgb(152, 166, 173)',
       },
     },
   };
