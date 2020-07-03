@@ -4,7 +4,6 @@ const useStyles = createUseStyles({
   card: ({ theme }) => ({
     backgroundClip: 'border-box',
     backgroundColor: theme.palette.card.main,
-    border: '1px solid rgba(245, 246, 250, .85)',
     borderRadius: '.25rem',
     display: 'flex',
     flexDirection: 'column',

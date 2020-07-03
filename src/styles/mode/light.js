@@ -9,8 +9,8 @@ const light = {
     main: 'rgb(255, 255, 255)',
   },
   text: {
-    base: 'rgb(0, 0, 0)',
-    muted: 'rgb(170, 176, 183)',
+    base: 'rgba(0, 0, 0, .87)',
+    muted: 'rgba(0, 0,  0, .54)',
   },
 };
 
