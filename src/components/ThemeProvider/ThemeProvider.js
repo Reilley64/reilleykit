@@ -3,7 +3,7 @@ import React, { createContext } from 'react';
 
 export const ThemeContext = createContext(null);
 
-const ThemeProvider = ({ children }) => {
+const ThemeProvider = ({ children, mode }) => {
   const value = {
     palette: {
       primary: {
@@ -24,11 +24,8 @@ const ThemeProvider = ({ children }) => {
       info: {
         main: 'rgb(68, 186, 220)',
       },
-      text: {
-        base: 'rgb(0, 0, 0)',
-        muted: 'rgb(152, 166, 173)',
-      },
     },
+    ...mode,
   };
 
   for (const key of Object.keys(value.palette)) {
