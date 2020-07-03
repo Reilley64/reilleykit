@@ -3,7 +3,7 @@ const light = {
     main: 'rgb(245, 245, 245)',
   },
   border: {
-    main: 'rgba(245, 246, 250, .85)',
+    main: 'rgb(224, 224, 224)',
   },
   card: {
     main: 'rgb(255, 255, 255)',
