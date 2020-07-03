@@ -24,8 +24,8 @@ const ThemeProvider = ({ children, mode }) => {
       info: {
         main: 'rgb(68, 186, 220)',
       },
+      ...mode,
     },
-    ...mode,
   };
 
   for (const key of Object.keys(value.palette)) {

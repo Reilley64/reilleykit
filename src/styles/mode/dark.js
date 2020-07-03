@@ -1,4 +1,4 @@
-const light = {
+const dark = {
   background: {
     main: 'rgb(51, 51, 51)',
   },
@@ -14,4 +14,4 @@ const light = {
   },
 };
 
-export default light;
+export default dark;
