@@ -9,3 +9,6 @@ export {
 export { default as ThemeProvider } from './components/ThemeProvider';
 
 export { default as useTheme } from './hooks/useTheme';
+
+export { default as dark } from './styles/mode/dark';
+export { default as light } from './styles/mode/light';
