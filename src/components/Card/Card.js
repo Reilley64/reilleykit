@@ -5,12 +5,12 @@ import useStyles from './Card.styles';
 
 import useTheme from '../../hooks/useTheme';
 
-const Card = ({ children, classname }) => {
+const Card = ({ children, className, ...props }) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
   return (
-    <div className={clsx(classes.card, classname)}>
+    <div className={clsx(classes.card, className)} {...props}>
       {children}
     </div>
   );
