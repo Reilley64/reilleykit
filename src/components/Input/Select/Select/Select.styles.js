@@ -4,7 +4,7 @@ const useStyles = createUseStyles({
   container: {
     position: 'relative',
   },
-  input: {
+  input: ({ theme }) => ({
     backgroundColor: 'transparent',
     border: '0 none',
     boxSizing: 'border-box',
@@ -17,10 +17,10 @@ const useStyles = createUseStyles({
     padding: '.5rem .375rem',
     width: '100%',
     '&:disabled::placeholder': {
-      color: 'rgb(165, 173, 186)',
+      color: theme.palette.text.muted,
       opacity: '1',
     },
-  },
+  }),
   endAdornment: ({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
@@ -47,7 +47,7 @@ const useStyles = createUseStyles({
     transition: 'background-color .2s ease-in-out 0s, border-color .2s ease-in-out 0s',
     verticalAlign: 'top',
     '&:hover': {
-      backgroundColor: disabled ? 'rgb(250, 251, 252)' : theme.palette.interact.main,
+      backgroundColor: disabled ? theme.palette.interact.dark : theme.palette.interact.main,
     },
     '&:focus-within': {
       backgroundColor: theme.palette.card.main,

@@ -1,14 +1,16 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useRef } from 'react';
 
 import useStyles from './Textfield.styles';
 
 import useTheme from '../../../hooks/useTheme';
 
 const Textfield = ({
-  className, disabled, field, label, required, type, ...props
+  className, disabled, endAdornment, field, label, required, type, ...props
 }) => {
   const theme = useTheme();
+
+  const inputRef = useRef();
   const classes = useStyles({ disabled, theme });
 
   return (
@@ -26,7 +28,13 @@ const Textfield = ({
           disabled={disabled}
           type={type || 'text'}
           required={false}
+          ref={inputRef}
         />
+        {endAdornment
+        && <div className={classes.endAdornment} onClick={() => inputRef.current.focus()}>
+          {endAdornment}
+        </div>
+        }
       </div>
     </div>
   );

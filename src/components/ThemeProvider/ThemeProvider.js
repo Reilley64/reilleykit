@@ -30,8 +30,8 @@ const ThemeProvider = ({ children, mode }) => {
 
   for (const key of Object.keys(value.palette)) {
     if (value.palette[key].main) {
-      value.palette[key].light = Color(value.palette[key].main).lighten(0.25).hex();
-      value.palette[key].dark = Color(value.palette[key].main).darken(0.25).hex();
+      value.palette[key].light = Color(value.palette[key].main).lighten(0.25).hsl().string();
+      value.palette[key].dark = Color(value.palette[key].main).darken(0.25).hsl().string();
     }
   }
 
