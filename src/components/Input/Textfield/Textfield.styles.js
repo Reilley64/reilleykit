@@ -20,8 +20,8 @@ const useStyles = createUseStyles({
   },
   wrapper: ({ disabled, theme }) => ({
     alignItems: 'center',
-    backgroundColor: 'rgb(250, 251, 252)',
-    border: '.125rem solid rgb(233, 225, 230)',
+    backgroundColor: theme.palette.card.main,
+    border: `.125rem solid ${theme.palette.border.main}`,
     borderRadius: '.1875rem',
     boxSizing: 'border-box',
     cursor: 'text',
@@ -35,10 +35,10 @@ const useStyles = createUseStyles({
     transition: 'background-color .2s ease-in-out 0s, border-color .2s ease-in-out 0s',
     verticalAlign: 'top',
     '&:hover': {
-      backgroundColor: disabled ? 'rgb(250, 251, 252)' : 'rgb(235, 236, 240)',
+      backgroundColor: disabled ? 'rgb(250, 251, 252)' : theme.palette.interact.main,
     },
     '&:focus-within': {
-      backgroundColor: 'rgb(255, 255, 255)',
+      backgroundColor: theme.palette.card.main,
       borderColor: theme.palette.primary.main,
     },
   }),

@@ -24,11 +24,11 @@ const useStyles = createUseStyles({
   boxSpan: ({ disabled, theme, value }) => ({
     lineHeight: '0',
     flexShrink: '0',
-    color: disabled ? 'rgb(244, 245, 247)' : value ? theme.palette.primary.main : 'rgb(250, 251, 252)',
-    fill: disabled ? 'transparent' : value ? 'rgb(250, 251, 252)' : 'transparent',
+    color: disabled ? 'rgb(244, 245, 247)' : value ? theme.palette.primary.main : theme.palette.card.main,
+    fill: disabled ? 'transparent' : value ? 'rgb(255, 255, 255)' : 'transparent',
     transition: 'all .2s ease-in-out 0s',
     '&:hover': {
-      color: disabled ? 'rgb(244, 245, 247)' : value ? theme.palette.primary.light : 'rgb(235, 236, 240)',
+      color: disabled ? 'rgb(244, 245, 247)' : value ? theme.palette.primary.light : theme.palette.interact.main,
     },
     '& > span': {
       display: 'flex',
@@ -44,7 +44,7 @@ const useStyles = createUseStyles({
         '& > g': {
           '& > rect': {
             transition: 'stroke .2s ease-in-out 0s',
-            stroke: disabled ? 'default' : value ? 'currentcolor' : 'rgb(233, 225, 230)',
+            stroke: disabled ? 'default' : value ? 'currentcolor' : theme.palette.border.main,
             stokeWidth: '.125rem',
           },
         },
