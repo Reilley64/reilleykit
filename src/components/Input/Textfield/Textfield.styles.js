@@ -18,6 +18,15 @@ const useStyles = createUseStyles({
       opacity: '1',
     },
   }),
+  endAdornment: ({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    paddingRight: '.75rem',
+    '& svg': {
+      color: theme.palette.text.muted,
+      fontSize: '.5625rem',
+    },
+  }),
   wrapper: ({ disabled, theme }) => ({
     alignItems: 'center',
     backgroundColor: theme.palette.card.main,
