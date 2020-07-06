@@ -10,6 +10,7 @@ const Button = ({
   className, children, color, disabled, loading, required, type, ...props
 }) => {
   const theme = useTheme();
+
   const classes = useStyles({ color, disabled, theme });
 
   return (
@@ -21,7 +22,7 @@ const Button = ({
     >
       <span className={classes.buttonSpan}>
         {loading
-          ? <Spinner size={0.5}/>
+          ? <Spinner color={'rgb(255, 255, 255)'} size={0.5}/>
           : children
         }
       </span>

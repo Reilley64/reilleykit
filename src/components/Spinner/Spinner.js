@@ -1,12 +1,13 @@
 import React from 'react';
-import { useTheme } from 'reilleykit';
 
 import useStyles from './Spinner.styles';
 
-const Spinner = ({ size }) => {
+import useTheme from '../../hooks/useTheme';
+
+const Spinner = ({ color, size }) => {
   const theme = useTheme();
 
-  const classes = useStyles({ size, theme });
+  const classes = useStyles({ color, size, theme });
 
   return (
     <div style={{
