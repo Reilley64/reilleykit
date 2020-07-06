@@ -1,5 +1,5 @@
 const light = {
-  mode: 'light',
+  name: 'light',
   palette: {
     background: {
       main: 'rgb(245, 245, 245)',

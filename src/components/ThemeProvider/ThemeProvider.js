@@ -5,6 +5,7 @@ export const ThemeContext = createContext(null);
 
 const ThemeProvider = ({ children, mode }) => {
   const value = {
+    mode: mode.name,
     palette: {
       primary: {
         main: 'rgb(103, 183, 220)',
@@ -24,8 +25,8 @@ const ThemeProvider = ({ children, mode }) => {
       info: {
         main: 'rgb(68, 186, 220)',
       },
+      ...mode.palette,
     },
-    ...mode,
   };
 
   for (const key of Object.keys(value.palette)) {

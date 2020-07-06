@@ -1,5 +1,5 @@
 const dark = {
-  mode: 'dark',
+  name: 'dark',
   palette: {
     background: {
       main: 'rgb(51, 51, 51)',
