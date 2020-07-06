@@ -15,7 +15,6 @@ const Select = ({
   const theme = useTheme();
   const classes = useStyles({ disabled, theme });
 
-  const ref = useRef();
   const inputRef = useRef();
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState('');
@@ -27,7 +26,7 @@ const Select = ({
     return '';
   };
 
-  useOnclickOutside(ref, () => {
+  const ref = useOnclickOutside(() => {
     setOpen(false);
     setValue(getLabel());
     field.onBlur(field.name);
