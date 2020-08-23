@@ -8,7 +8,7 @@ const ThemeProvider = ({ children, mode }) => {
     mode: mode.name,
     palette: {
       primary: {
-        main: 'rgb(103, 183, 220)',
+        main: 'rgb(51, 94, 234)',
       },
       secondary: {
         main: 'rgb(145, 156, 167)',
