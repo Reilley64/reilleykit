@@ -14,8 +14,8 @@ const light = {
       main: 'rgba(0, 0, 0, .04)',
     },
     text: {
-      base: 'rgba(0, 0, 0, .87)',
-      muted: 'rgba(0, 0,  0, .54)',
+      base: 'rgb(9, 30, 66)',
+      muted: 'rgb(107, 119, 140)',
     },
   },
 };
